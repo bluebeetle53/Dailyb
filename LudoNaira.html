@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join Ludo Naira and start earning ₦1,000 by playing and winning Ludo games. Sign up now to get started and enjoy exciting rewards!">
+  <meta name="keywords" content="Ludo Naira, Earn Money Playing Ludo, Ludo Game Nigeria, Ludo Earnings, Play and Earn Ludo">
+  <meta name="author" content="Ludo Naira Team">
+  <meta property="og:title" content="Ludo Naira - Earn ₦1,000 by Playing Ludo">
+  <meta property="og:description" content="Sign up now on Ludo Naira and earn ₦1,000 by winning Ludo games. Start your gaming journey today!">
+  <meta property="og:image" content="https://www.ludonaira.com/LudoNaira_files/ludo.png">
+  <meta property="og:url" content="https://www.ludonaira">
+  <meta property="og:type" content="website">
+  <title>Ludo Naira - Signup</title>
+  <link rel="icon" href="https://www.ludonaira.com/LudoNaira_files/ludo.png" type="image/png">
+  <title>Ludo Naira - Signup</title>
+  <style>
+    /* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f9fafc;
+}
+
+/* Signup Container */
+.signup-container {
+  max-width: 400px;
+  margin: 0px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  
+}
+
+.logo {
+  width: 130px;
+  height: 130px;
+  margin-bottom: 0px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 5px;
+  margin-top: 0px;
+}
+
+p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Form Inputs */
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.input-group button {
+  margin-top: 5px;
+  background: #ff9800;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button#proceed-btn {
+  background: green;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Bottom Sheet */
+.bottom-sheet {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+  transition: bottom 0.3s ease;
+  z-index: 1000;
+}
+
+.sheet-content {
+  padding: 20px;
+}
+
+.sheet-content h2 {
+  font-size: 18px;
+}
+
+.sheet-content p {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.sheet-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sheet-content li {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+#confirm-transfer-btn, #close-sheet-btn {
+  margin-top: 15px;
+  background: green;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Dialog */
+.dialog {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+
+/* Notification Styling */
+.notification {
+    width: 90%;
+    max-width: 600px;
+    background: green;
+    border: 1px solid #f0e1c6;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    margin: 0px auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notification img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.notification span {
+    font-size: 14px;
+    color: white;
+}
+  </style>
+  <link rel="icon" href="ludo.png">
+</head>
+<body>
+  
+  
+   <div class="notification" id="notification">
+        <img id="profileIcon" src="" alt="Profile Icon" />
+        <span id="notificationText"></span>
+    </div>
+  
+  
+  
+  <div class="signup-container">
+    <header>
+      <img src="https://www.ludonaira.com/LudoNaira_files/ludo.png" alt="Ludo Naira Logo" class="logo">
+      <h1>Ludo Naira</h1>
+      <p>Earn ₦1,000 by playing Ludo if you win!</p>
+    </header>
+
+    <form id="signup-form">
+      <div class="input-group">
+        <label for="first-name">First Name and Surname</label>
+        <input type="text" id="first-name" placeholder="Enter your full name" required>
+      </div>
+
+      <div class="input-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="input-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="Enter your phone number" required>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+      </div>
+
+      <div class="input-group">
+        <label for="coupon">Coupon Code</label>
+        <input type="text" id="coupon" placeholder="Enter coupon code">
+        <button type="button" id="buy-coupon-btn">Buy Coupon Code</button>
+      </div>
+
+      <button type="button" id="proceed-btn">Proceed</button>
+    </form>
+  </div>
+
+  <!-- Bottom Sheet -->
+  <div id="bottom-sheet" class="bottom-sheet">
+    <div class="sheet-content">
+      <h2>Coupon Code Cost: ₦1,000</h2>
+      <p>Make payment to the account below:</p>
+      <ul>
+        <li><strong>Account Number:</strong> 6324478001</li>
+        <li><strong>Bank:</strong> Moniepoint Microfinance Bank</li>
+        <li><strong>Account Name:</strong> Atpay-mon</li>
+      </ul>
+
+      <div class="input-group">
+        <label for="receipt">Upload Transaction Receipt</label>
+        <input type="file" id="receipt">
+      </div>
+
+      <div class="input-group">
+        <label for="whatsapp">Enter your WhatsApp Number</label>
+        <input type="tel" id="whatsapp" placeholder="Enter WhatsApp number">
+      </div>
+
+      <p>🔔 Click on the button below if you've made the transfer. If your deposit is valid, we'll send you the coupon code via WhatsApp.</p>
+
+      <button id="confirm-transfer-btn">I Have Made the Transfer</button>
+      <button id="close-sheet-btn">Close</button>
+    </div>
+  </div>
+
+  <!-- Dialog Box -->
+  <div id="dialog" class="dialog">
+    <div class="dialog-content">
+      <p id="dialog-message"></p>
+      <button id="close-dialog-btn">Close</button>
+    </div>
+  </div>
+  <script>
+    const couponInput = document.getElementById('coupon');
+const proceedBtn = document.getElementById('proceed-btn');
+const buyCouponBtn = document.getElementById('buy-coupon-btn');
+const bottomSheet = document.getElementById('bottom-sheet');
+const closeSheetBtn = document.getElementById('close-sheet-btn');
+const confirmTransferBtn = document.getElementById('confirm-transfer-btn');
+const dialog = document.getElementById('dialog');
+const dialogMessage = document.getElementById('dialog-message');
+const closeDialogBtn = document.getElementById('close-dialog-btn');
+
+// Proceed Button
+proceedBtn.addEventListener('click', () => {
+  if (couponInput.value !== '56Ludo2025Naira') {
+    dialogMessage.textContent = 'Incorrect coupon. Please input the correct coupon code or buy one.';
+    dialog.style.display = 'flex';
+  }
+});
+
+// Buy Coupon Button
+buyCouponBtn.addEventListener('click', () => {
+  bottomSheet.style.bottom = '0';
+});
+
+// Close Bottom Sheet
+closeSheetBtn.addEventListener('click', () => {
+  bottomSheet.style.bottom = '-100%';
+});
+
+// Confirm Transfer
+confirmTransferBtn.addEventListener('click', () => {
+  dialogMessage.textContent = 'Your deposit is awaiting verification.';
+  dialog.style.display = 'flex';
+});
+
+// Close Dialog
+closeDialogBtn.addEventListener('click', () => {
+  dialog.style.display = 'none';
+});
+  </script>
+  
+  <script>
+// List of 100 Nigerian Names (Across Tribes)
+const nigerianNames = [
+    "Adeola", "Chinaza", "Olumide", "Ifeanyi", "Ngozi", "Babatunde", "Ezinne", 
+    "Tolu", "Chukwuemeka", "Funmilayo", "Halima", "Yakubu", "Kemi", "Emeka", 
+    "Zainab", "Segun", "Uchenna", "Amina", "Femi", "Ogechi", "Hassan", 
+    "Ibrahim", "Efe", "Abimbola", "Obinna", "Fatima", "Gbenga", "Maryam", 
+    "Tope", "Blessing", "Chijioke", "Ngozika", "Suleiman", "Oluwaseun", 
+    "Chidimma", "Osas", "Abdulahi", "Chinwe", "Jamilu", "Fadeke", "Tijani", 
+    "Eniola", "Abubakar", "Isioma", "Nkem", "Abraham", "Jumoke", "Amara", 
+    "Teniola", "Idris", "Yusuf", "Nkiruka", "Hauwa", "Adamu", "Ebere", 
+    "Paulina", "Adewale", "Umar", "Chisom", "Ndidi", "Taiwo", "Kelechi", 
+    "Fatimah", "Nuhu", "Osinachi", "Damilola", "Chinyere", "Aisha", "Kunle", 
+    "Seyi", "Modupe", "Onyeka", "Sadiq", "Chima", "Ayo", "Musa", "Nnenna", 
+    "Obinna", "Adeyemi", "Ijeoma", "Sule", "Oluwatobi", "Chigozie", "Amaka", 
+    "Bose", "Aliyu", "Eucharia", "Hakeem", "Adaora", "Ibrahim", "Temitope", 
+    "Ugochi", "Nafisa", "Yahaya"
+];
+
+// Function to display a random notification
+function displayNotification() {
+    // Select a random name
+    const randomName = nigerianNames[Math.floor(Math.random() * nigerianNames.length)];
+
+    // Randomly select Male or Female profile icon
+    const isMale = Math.random() > 0.5;
+    const profileIcon = isMale 
+        ? 'https://cdn-icons-png.flaticon.com/128/14663/14663189.png' 
+        : 'https://cdn-icons-png.flaticon.com/128/18269/18269717.png';
+
+    // Update the notification content
+    document.getElementById('profileIcon').src = profileIcon;
+    document.getElementById('notificationText').innerText = `${randomName} won the game & Withdrawed ₦1,000`;
+}
+
+// Initial call
+displayNotification();
+
+// Refresh notification every 2 seconds
+setInterval(displayNotification, 2000);
+  </script>
+</body>
+</html>
