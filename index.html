@@ -283,14 +283,23 @@ const dialog = document.getElementById('dialog');
 const dialogMessage = document.getElementById('dialog-message');
 const closeDialogBtn = document.getElementById('close-dialog-btn');
 
-// Proceed Button
-proceedBtn.addEventListener('click', () => {
-  if (couponInput.value !== '56Ludo2025Naira') {
-    dialogMessage.textContent = 'Incorrect coupon. Please input the correct coupon code or buy one.';
-    dialog.style.display = 'flex';
-  }
-});
 
+
+
+    
+// Proceed Button
+// proceedBtn.addEventListener('click', () => {
+//  if (couponInput.value !== '56Ludo2025Naira') {
+//    dialogMessage.textContent = 'Incorrect coupon. Please input the correct coupon code or buy one.';
+//    dialog.style.display = 'flex';
+//  }
+// });
+
+
+
+
+
+    
 // Buy Coupon Button
 buyCouponBtn.addEventListener('click', () => {
   bottomSheet.style.bottom = '0';
@@ -354,5 +363,30 @@ displayNotification();
 // Refresh notification every 2 seconds
 setInterval(displayNotification, 2000);
   </script>
+
+
+
+<script>
+    // Get references to elements
+const proceedBtn = document.getElementById('proceed-btn');
+const couponInput = document.getElementById('coupon-input'); // Ensure there's an input field with this ID
+const dialog = document.getElementById('dialog'); // Ensure there's a dialog element with this ID
+const dialogMessage = document.getElementById('dialog-message'); // Ensure there's an element for the message
+
+// Proceed Button Click Event
+proceedBtn.addEventListener('click', () => {
+  if (couponInput.value === '56Ludo2025Naira') {
+    // Redirect if coupon is correct
+    window.location.href = 'home-ludo.html';
+  } else {
+    // Show error message if coupon is incorrect
+    dialogMessage.textContent = 'Incorrect coupon. Please input the correct coupon code or buy one.';
+    dialog.style.display = 'flex';
+  }
+});
+</script>
+
+  
+  
 </body>
 </html>
