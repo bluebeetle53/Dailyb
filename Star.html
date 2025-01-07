@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Next Star - A sing and win contest where you can showcase your talent and stand a chance to win up to ₦1,000,000. Register now and start your journey to stardom!">
+    <meta name="keywords" content="Singing Contest, Talent Show, The Next Star, Win ₦1,000,000, Music Competition">
+    <meta name="author" content="The Next Star Team">
+    <title>The Next Star - Sing & Win Contest</title>
+    <link rel="icon" href="https://thenextstar.co/thenextstarlogo.png" type="image/png">
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #4A00E0, #8E2DE2);
+            color: #fff;
+        }
+
+        header {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        header img {
+            width: 150px;
+            height: auto;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            background: #fff;
+            color: #333;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        input, button, textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #8E2DE2;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #4A00E0;
+        }
+
+        table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .toast {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .side-image {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .side-image img {
+            width: 80%;
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        
+        /* WhatsApp FAB Styling */
+    .whatsapp-fab {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background-color: #4A00E0;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        z-index: 1000;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .whatsapp-fab:hover {
+        transform: scale(1.1);
+    }
+
+    .whatsapp-fab img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    </style>
+    <script>
+        function showPage(pageNumber) {
+            document.getElementById('page1').classList.add('hidden');
+            document.getElementById('page2').classList.add('hidden');
+            document.getElementById('page3').classList.add('hidden');
+            
+            document.getElementById('page' + pageNumber).classList.remove('hidden');
+        }
+
+        function submitPayment() {
+            document.getElementById('toast').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('toast').style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Header with Logo -->
+    <header>
+        <img src="https://thenextstar.co/thenextstarlogo.png" alt="The Next Star Logo">
+    </header>
+
+    <h1>The Next Star</h1>
+    <h2>Sing & Win Contest</h2>
+
+    <!-- First Page -->
+    <div id="page1" class="container">
+        <h3>Registration Form</h3>
+        <input type="text" placeholder="Full Name" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="text" placeholder="WhatsApp Number" required>
+        <label>Upload Image</label>
+        <input type="file" accept="image/*" required>
+        
+        <h4>Bank Details</h4>
+        <input type="text" placeholder="Account Number" required>
+        <input type="text" placeholder="Account Name" required>
+        <input type="text" placeholder="Bank Name" required>
+
+        <button onclick="showPage(2)">Next</button>
+    </div>
+
+    <!-- Second Page -->
+    <div id="page2" class="container hidden">
+        <h3>Stand a Chance to Win ₦1,000,000</h3>
+        <p>1) Registration Fee: NGN 5,000 (Compulsory)</p>
+        <p>2) After registration, you'll be able to upload your songs and invite friends to vote.</p>
+
+        <div class="side-image">
+            <img src="https://thenextstar.co/sideimg.png" alt="The Next Star Side Image">
+        </div>
+
+        <h4>Prize Breakdown</h4>
+        <table>
+            <tr>
+                <th>Position</th>
+                <th>Prize</th>
+            </tr>
+            <tr>
+                <td>1st</td>
+                <td>₦1,000,000</td>
+            </tr>
+            <tr>
+                <td>2nd</td>
+                <td>₦700,000</td>
+            </tr>
+            <tr>
+                <td>3rd</td>
+                <td>₦300,000</td>
+            </tr>
+            <tr>
+                <td>4th</td>
+                <td>₦100,000</td>
+            </tr>
+            <tr>
+                <td>5th</td>
+                <td>₦50,000</td>
+            </tr>
+        </table>
+        <button onclick="showPage(3)">Next</button>
+    </div>
+
+
+
+
+<!-- Floating WhatsApp FAB Icon -->
+<a href="https://wa.me/message/V7AGIZZ5QQEXI1?text=Hi%20the%20Next%20Star%20how%20are%20you%20doing" target="_blank" class="whatsapp-fab">
+    <img src="https://cdn-icons-png.flaticon.com/128/1383/1383269.png" alt="WhatsApp Icon">
+</a>
+
+
+    <!-- Third Page -->
+    <div id="page3" class="container hidden">
+        <h3>Complete Your Registration</h3>
+        <p>Make a payment of ₦5,000 to complete your registration.</p>
+        <p><strong>Bank Name:</strong> 9PSB</p>
+        <p><strong>Account Number:</strong> 6174988805</p>
+        <p><strong>Account Name:</strong> Favour Adesiyan</p>
+
+        <label>Upload Transaction Receipt</label>
+        <input type="file" accept="image/*" required>
+
+        <button onclick="submitPayment()">Verify and Complete Registration</button>
+    </div>
+
+    <div id="toast" class="toast">Your Payment details have been submitted and you'll be contacted via WhatsApp when your payment is confirmed.</div>
+
+</body>
+</html>
