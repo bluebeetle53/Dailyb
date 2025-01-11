@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPNS - Virtual Phone Number Services</title>
+    <style>
+      /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header */
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+header .logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Navigation Tabs */
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    margin: 20px auto;
+    border-radius: 25px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+}
+
+nav .tab {
+    flex: 1;
+    text-align: center;
+    padding: 15px 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    background-color: #ffffff;
+    color: #4CAF50;
+}
+
+nav .tab.active {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+#home h2,
+#phone-numbers h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+/* Home Section */
+#home ol {
+    margin: 20px 0;
+    padding-left: 20px;
+    list-style: none;
+}
+
+#home ol li {
+    margin-bottom: 15px;
+    padding-left: 10px;
+    font-size: 1rem;
+    position: relative;
+    color: #555;
+}
+
+#home ol li:before {
+    content: '✔';
+    color: #4CAF50;
+    position: absolute;
+    left: -20px;
+    font-size: 1.2rem;
+}
+
+#home p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* Phone Numbers Section */
+.phone-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 10px;
+    justify-items: center;
+}
+
+.phone-item {
+    width: 90%;
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.phone-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.phone-item h3 {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.phone-item .sms {
+    font-size: 0.9rem;
+    color: #888;
+    margin: 10px 0;
+    filter: blur(2.5px);
+}
+
+.phone-item p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.phone-item button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.phone-item button:hover {
+    background-color: #388E3C;
+    transform: scale(1.05);
+}
+
+/* Button Styles */
+button {
+    font-family: inherit;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    header {
+        font-size: 0.9rem;
+    }
+
+    nav .tab {
+        padding: 12px 5px;
+        font-size: 0.9rem;
+    }
+
+    #home ol li {
+        font-size: 0.9rem;
+    }
+
+    .phone-item {
+        width: 100%;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Footer (Optional, for polished look) */
+footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 0.9rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* Search Bar Styling */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+#search-input {
+    width: 70%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+#search-input:focus {
+    box-shadow: 0px 0px 5px rgba(76, 175, 80, 0.8);
+}
+
+#search-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#search-btn:hover {
+    background-color: #388E3C;
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <img src="https://cdn-icons-png.flaticon.com/128/16378/16378780.png" alt="VPNS Logo" class="logo">
+        <h1>Virtual Phone Number Services</h1>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav>
+        <button id="home-tab" class="tab active">Home</button>
+        <button id="phone-tab" class="tab">Phone Numbers</button>
+    </nav>
+    
+    <div class="search-container">
+    <input 
+        type="text" 
+        id="search-input" 
+        placeholder="Search for a phone number or country..." 
+    />
+    <button id="search-btn">Search</button>
+</div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Tab Content -->
+        <section id="home" class="tab-content active">
+            <h2>Welcome to VPNS</h2>
+            <p>Follow these steps to get started:</p>
+            <ol>
+                <li>Select a virtual phone number from the "Phone Numbers" tab.</li>
+                <li>Pay ₦2,700 to activate the virtual phone number.</li>
+                <li> Payment verification is automatic once the payment to our account is detected from your device</li>
+                <li>Start receiving SMS , OTP and messages instantly.</li>
+            </ol>
+            <p>Each virtual phone number costs <strong>₦2,700</strong>. Enjoy our reliable service today!</p>
+        </section>
+
+        <!-- Phone Numbers Tab Content -->
+        <section id="phone-numbers" class="tab-content">
+            <h2>Available Virtual Phone Numbers</h2>
+            <div class="phone-list">
+                <!-- Phone numbers will be dynamically generated via JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (Optional) -->
+    <footer>
+        <p>© 2025 VPNS - All Rights Reserved | <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+    // Tab navigation
+    const homeTab = document.getElementById("home-tab");
+    const phoneTab = document.getElementById("phone-tab");
+    const homeContent = document.getElementById("home");
+    const phoneNumbersContent = document.getElementById("phone-numbers");
+    const phoneList = document.querySelector(".phone-list");
+
+    // Data for phone numbers and messages
+    const countries = ["USA", "UK", "Canada", "India", "Germany", "Australia", "France", "Japan", "Nigeria", "Brazil"];
+    const messages = [
+      
+      
+      "Your OTP is 123456. Please keep this code confidential for your security.",  
+"Verification code: 789101. Use it within the next 10 minutes to verify your account.",  
+"Welcome to VPNS! Enjoy secure, reliable, and fast internet browsing.",  
+"Your package has been delivered. Thank you for shopping with us!",  
+"New login attempt detected. If this wasn’t you, please secure your account.",  
+"Reset your password using code 654321. Do not share this code with anyone.",  
+"Your subscription is active. Thank you for choosing our service!",  
+"Thank you for using our service! We hope to serve you again soon.",  
+"Your account balance is low. Please recharge to avoid service interruptions.",  
+"Your payment of $50 has been received successfully. Thank you!",  
+"Appointment reminder: Your appointment is scheduled for tomorrow at 3 PM.",  
+"Your order has been shipped. Track your package using the tracking link.",  
+"Important: Your session will expire in 5 minutes. Save your work now.",  
+"Welcome back! Your account has been successfully reactivated.",  
+"Your verification process is complete. You’re all set to access our services!",  
+"We’ve noticed unusual activity on your account. Please verify recent changes.",  
+"Your new device has been successfully registered to your account.",  
+"Your profile update was successful. Thank you for keeping your details current.",  
+"Password changed successfully. If you didn’t initiate this, please contact support.",  
+"Congratulations! You’ve been awarded 500 loyalty points. Redeem them now!",  
+"Your feedback is valuable to us. Please take a moment to complete our survey.",
+"Your OTP is 987654. Do not share this with anyone for your safety.",  
+"Verification code: 123098. Please use it to confirm your identity.",  
+"Welcome to our premium plan! Enjoy exclusive features and benefits.",  
+"Your package is out for delivery. Expect it by the end of the day.",  
+"New device login detected. Secure your account if this wasn’t you.",  
+"Reset your password using code 789654. It will expire in 10 minutes.",  
+"Your subscription renewal is successful. Enjoy uninterrupted services.",  
+"Thank you for staying with us! We’re glad to have you as our customer.",  
+"Your account has been temporarily locked due to multiple login attempts.",  
+"Payment of $120 has been successfully processed for your recent order.",  
+"Your account has been credited with $50. Thank you for using our service.",  
+"Reminder: Your free trial ends tomorrow. Subscribe to continue access.",  
+"Your delivery is scheduled for tomorrow. Track your package for updates.",  
+"Your session has expired. Log in again to continue using the platform.",  
+"Welcome! Your registration is complete. Explore and enjoy our services.",  
+"Your verification is pending. Please complete it to activate your account.",  
+"We’ve updated our terms of service. Visit our website to learn more.",  
+"Your data usage limit is 80% consumed. Recharge to avoid interruptions.",  
+"Your subscription has been canceled. Contact us for further assistance.",  
+"Congratulations! You’ve unlocked a 10% discount on your next purchase.",  
+"Your service request has been received. Our team will contact you shortly.",  
+"We’ve issued a refund of $20 to your account. Thank you for your patience.",  
+"Your ticket #456789 is now open. We’ll resolve your issue as soon as possible.",  
+"Your profile update request has been processed successfully.",  
+"Thank you for signing up! Get started by exploring our features today.",  
+"Your password reset request has been initiated. Use code 123654 to proceed.",  
+"Account activity alert: Your account was accessed from a new location.",  
+"Your payment failed. Please update your payment method to complete the transaction.",  
+"Service alert: Scheduled maintenance will occur tomorrow from 2 AM to 4 AM.",  
+"Your internet package has been upgraded to the premium plan.",  
+"Your transaction of $250 is under review. We’ll notify you of the status shortly.",  
+"Reminder: Your rent payment is due in 3 days. Pay now to avoid penalties.",  
+"Your order #98765 has been canceled as per your request.",  
+"Your account password has been successfully updated.",  
+"We’ve added $10 bonus credits to your account. Enjoy your rewards!",  
+"Your loan application is under review. We’ll update you on the next steps.",  
+"Important: Your phone number verification is pending. Complete it now.",  
+"Your account has been successfully verified. Welcome aboard!",  
+"Congratulations! You’ve earned a cashback of $15 on your last purchase.",  
+"Your delivery address has been updated as per your request.",  
+"Your service request #123456 has been completed successfully.",  
+"Your wallet balance is low. Top up now to continue uninterrupted services.",  
+"Reminder: Your appointment is scheduled for Monday at 10 AM.",  
+"Welcome to the community! Check out our user guide to get started.",  
+"Your credit card ending in 7890 has been successfully linked to your account.",  
+"Your complaint has been registered. We’ll get back to you within 24 hours.",  
+"Your bank account has been debited $100 for your last transaction.",  
+"Thank you for your payment. Your current plan is active until next month.",  
+"Your loyalty points have been redeemed successfully.",  
+"Your internet usage is approaching the limit. Recharge now to continue browsing.",  
+"Alert: Multiple login attempts detected on your account.",  
+"Reminder: Your account subscription will renew automatically tomorrow.",  
+"Your e-ticket for the event has been sent to your registered email.",  
+"Your mobile number has been successfully updated in our system.",  
+"Your booking for the flight has been confirmed. Check your email for details.",  
+"Your payment receipt for order #78945 has been emailed to you.",  
+"Account upgrade successful! Enjoy additional features and benefits.",  
+"Alert: An unknown device tried accessing your account.",  
+"Your address change request has been approved and updated in our records.",  
+"Your internet speed has been upgraded as per your new plan.",  
+"Account inactivity alert: Your account hasn’t been used for 30 days.",  
+"Thank you for renewing your subscription. Your new plan starts today.",  
+"Your request for additional storage has been processed successfully.",  
+"Your promotional code SAVE20 has been applied to your account.",  
+"Your parcel has been picked up by the courier. Track it for updates.",  
+"Your data package has been successfully activated.",  
+"Thank you for verifying your email address. You’re now fully set up.",  
+"Your refund of $40 has been processed and credited to your account.",  
+"Your PIN reset request is complete. Use your new PIN to log in.",  
+"Your account login attempt failed. Please try again or reset your password.",  
+"Thank you for subscribing to our newsletter. Stay tuned for updates.",  
+"Your ride is on the way! Check the app for the driver’s details.",  
+"Congratulations! You’ve been selected for our premium customer rewards.",  
+"Your account is now eligible for a free upgrade. Claim it in your profile.",  
+"Alert: Suspicious activity detected on your credit card.",  
+"Your subscription will expire in 3 days. Renew now to continue access.",  
+"Your SIM card has been activated successfully.",  
+"Your electricity bill payment of $75 has been processed successfully.",  
+"Reminder: Your annual membership renewal is due next week.",  
+"Your PIN change request has been processed. Use the new PIN for transactions.",  
+"Your fitness goal for the week has been updated. Keep pushing forward!",  
+"Congratulations! You’ve been enrolled in our exclusive loyalty program.",  
+"Your food delivery order is on its way. Enjoy your meal!",  
+"Alert: Your phone battery health is low. Consider replacing it soon.",  
+"Your parking spot is confirmed for today. Have a safe trip!",  
+"Your balance transfer request of $200 is being processed.",  
+"Reminder: Your project deadline is tomorrow at 5 PM.",  
+"Thank you for shopping with us! Your items will arrive soon.",  
+"Your customer support request has been resolved. Thank you for your patience.",  
+"Your gift card of $100 has been activated successfully.",  
+"Your credit score has been updated. Check the app for details.",  
+"Thank you for your donation of $50. You’re making a difference!",  
+"Your exam schedule is available now. Log in to view your dates.",  
+"Your ticket #123456 has been closed. Contact us for further queries.",  
+"Reminder: Your fitness class is scheduled for tomorrow at 6 AM.",  
+"Your order has been packed and is ready for dispatch.",  
+"Your package was delivered to your neighbor as per your request.",  
+"Your new credit limit is $5,000. Use it wisely!",  
+"Congratulations! You’ve achieved your savings goal for this month.",  
+"Your internet speed test is complete. Results have been emailed to you.",  
+"Your requested document is ready for download. Check your inbox.",  
+"Your parking payment of $10 has been processed successfully.",
+        
+        
+        
+        
+        
+        
+    ];
+
+    // Switch tabs
+    function switchTab(activeTab, activeContent, inactiveTab, inactiveContent) {
+        activeTab.classList.add("active");
+        inactiveTab.classList.remove("active");
+        activeContent.classList.add("active");
+        inactiveContent.classList.remove("active");
+    }
+
+    homeTab.addEventListener("click", () => {
+        switchTab(homeTab, homeContent, phoneTab, phoneNumbersContent);
+    });
+
+    phoneTab.addEventListener("click", () => {
+        switchTab(phoneTab, phoneNumbersContent, homeTab, homeContent);
+    });
+
+    // Generate random phone numbers
+    function generatePhoneNumbers(count) {
+        const phoneNumbers = [];
+        for (let i = 0; i < count; i++) {
+            const randomCountry = countries[Math.floor(Math.random() * countries.length)];
+            const phoneNumber = `+${Math.floor(1000000000 + Math.random() * 9000000000)}`;
+            phoneNumbers.push({ country: randomCountry, number: phoneNumber });
+        }
+        return phoneNumbers;
+    }
+
+    // Populate phone numbers on the page
+    function populatePhoneNumbers(phoneNumbers) {
+        phoneList.innerHTML = ""; // Clear any existing phone numbers
+        phoneNumbers.forEach((phone) => {
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            const phoneItem = document.createElement("div");
+            phoneItem.classList.add("phone-item");
+            phoneItem.innerHTML = `
+                <h3>${phone.number}</h3>
+                <p class="sms">${randomMessage}</p>
+                <p>Price: ₦2,700</p>
+                
+                
+   <a href="VPNSpayment.html">
+    <button type="button" onclick="redirectToPayment()">View all Messages</button>
+</a>
+            `;
+            phoneList.appendChild(phoneItem);
+        });
+    }
+    
+    
+// Redirect to payment page
+function redirectToPayment() {
+    // Log a message to verify the function is called
+    console.log("Redirecting to payment page...");
+    
+    // Redirect to the correct payment page
+    window.location.href = "./VPNSpayment.html"; // Adjust path as necessary
+}
+
+
+    // Refresh messages every 5 seconds
+    function refreshMessages() {
+        document.querySelectorAll(".sms").forEach((sms) => {
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            sms.textContent = randomMessage;
+        });
+    }
+
+    // Initialize the phone numbers
+    const phoneNumbers = generatePhoneNumbers(500); // Generate 50 phone numbers
+    populatePhoneNumbers(phoneNumbers);
+    setInterval(refreshMessages, 5000); // Refresh messages every 5 seconds
+});
+    </script>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("search-input");
+    const searchBtn = document.getElementById("search-btn");
+    const phoneItems = document.querySelectorAll(".phone-item");
+
+    // Search Functionality
+    function searchPhoneNumbers() {
+        const searchTerm = searchInput.value.toLowerCase();
+        let resultsFound = false;
+
+        phoneItems.forEach((item) => {
+            const phoneNumber = item.querySelector("h3").textContent.toLowerCase();
+            const countryName = item.querySelector("h3").textContent.toLowerCase();
+
+            if (phoneNumber.includes(searchTerm) || countryName.includes(searchTerm)) {
+                item.style.display = "block";
+                resultsFound = true;
+            } else {
+                item.style.display = "none";
+            }
+        });
+
+        if (!resultsFound) {
+            alert("You haven't bought or activated any number.");
+        }
+    }
+
+    // Attach search functionality to the search button
+    searchBtn.addEventListener("click", searchPhoneNumbers);
+
+    // Allow real-time searching as the user types
+    searchInput.addEventListener("input", searchPhoneNumbers);
+});
+    </script>
+</body>
+</html>
