@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Page</title>
+    <style>
+       /* General Styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: #f4f7fb;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    overflow-x: hidden;
+}
+
+.auth-dialog, .quiz-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+}
+
+.auth-dialog:hover, .quiz-container:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h2 {
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.quiz-header {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    color: #777;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+label {
+    font-size: 1em;
+    margin: 10px 0 5px;
+    color: #555;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+input, button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, button:focus {
+    outline: none;
+    border-color: #5cb85c;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+}
+
+input {
+    background-color: #fafafa;
+    transition: background-color 0.3s ease;
+}
+
+input:hover {
+    background-color: #f1f1f1;
+}
+
+button {
+    background: #28a745;
+    color: white;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+
+button:active {
+    background: #1e7e34;
+    transform: translateY(2px);
+}
+
+button:disabled {
+    background: #ddd;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .auth-dialog, .quiz-container {
+        padding: 20px;
+    }
+}
+
+
+.image-container {
+    display: flex;               /* Use flexbox to center the content */
+    justify-content: center;     /* Center horizontally */
+    align-items: center;         /* Center vertically (optional) */
+    height: 80px; /* Optional: set container height for vertical centering */
+    margin-bottom: 0px;
+    
+}
+
+.icon {
+    width: 120px;            /* Make the image responsive */
+    height: 120px;               /* Maintain aspect ratio */
+}
+
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+input:focus {
+    animation: pulse 0.6s infinite;
+}
+
+button:focus {
+    animation: pulse 0.6s infinite;
+}
+
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-database-compat.js"></script>
+</head>
+<body>
+  
+    <!-- Authentication Dialog -->
+    <div class="auth-dialog" id="authDialog">
+      
+     <div class="image-container">
+    <img src="https://edumagicia.onrender.com/icon3.png" class="icon" alt="Icon">
+</div>
+
+        <h2>Student Login</h2>
+        <label>Registration Number:</label>
+        <input type="text" id="regNumber">
+        <label>Password:</label>
+        <input type="password" id="password">
+        <button onclick="authenticate()">Login</button>
+    </div>
+
+    <!-- Quiz Container -->
+    <div class="quiz-container hidden" id="quizContainer">
+        <div class="quiz-header" id="quizHeader"></div>
+        <div id="quizContent"></div>
+        <button onclick="submitQuiz()">Submit Exam</button>
+    </div>
+
+    <script>
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDJP2XIR51qGTLINiKvEoscYTMt11CaZ5s",
+            authDomain: "paytrust-71e30.firebaseapp.com",
+            databaseURL: "https://paytrust-71e30-default-rtdb.firebaseio.com/",
+            projectId: "paytrust-71e30",
+            storageBucket: "gs://paytrust-71e30.appspot.com",
+            messagingSenderId: "492609516838",
+            appId: "1:492609516838:android:5a924ad3b7e8e508fa3de7"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // Student Authentication Data
+        const students = {
+            "EDUMAGICIA/2025/77548": { username: "Favour Adesiyan", password: "56xhm10o" },
+            "EDUMAGICIA/2025/26277": { username: "Deborah Feldman", password: "72hshu4" },
+            "EDUMAGICIA/2025/62720": { username: "Michael Jackson", password: "717hah8" }
+        };
+
+        let currentUser = null;
+
+        // Authentication Function
+        function authenticate() {
+            const regNumber = document.getElementById('regNumber').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (students[regNumber] && students[regNumber].password === password) {
+                currentUser = { regNumber, username: students[regNumber].username };
+                document.getElementById('authDialog').classList.add('hidden');
+                document.getElementById('quizContainer').classList.remove('hidden');
+                document.getElementById('quizHeader').innerHTML = `Welcome, ${currentUser.username} (${currentUser.regNumber})`;
+                loadQuiz();
+            } else {
+                alert('Invalid credentials. Please try again.');
+            }
+        }
+
+        // Load Quiz from Firebase
+        function loadQuiz() {
+            const quizContent = document.getElementById('quizContent');
+            quizContent.innerHTML = ''; // Clear any existing content
+
+            database.ref('quizzes').once('value')
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        snapshot.forEach((childSnapshot) => {
+                            const data = childSnapshot.val();
+                            quizContent.innerHTML += `
+                                <div>
+                                    <p><strong>Subject:</strong> ${data.subject}</p>
+                                    <p><strong>Question:</strong> ${data.question}</p>
+                                    ${data.options.map((option, index) => `
+                                        <label>
+                                            <input type="radio" name="quiz-${childSnapshot.key}" value="${option}">
+                                            ${option}
+                                        </label>
+                                    `).join('')}
+                                </div>
+                                <hr>
+                            `;
+                        });
+                    } else {
+                        quizContent.innerHTML = '<p>No quizzes available at the moment.</p>';
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error loading quiz:', error);
+                    alert('Failed to load quiz. Please try again.');
+                });
+        }
+
+        // Submit Quiz
+        function submitQuiz() {
+            const answers = {};
+            document.querySelectorAll('[name^="quiz-"]').forEach((input) => {
+                if (input.checked) {
+                    answers[input.name] = input.value;
+                }
+            });
+
+            database.ref('quiz_results').push({
+                regNumber: currentUser.regNumber,
+                username: currentUser.username,
+                answers
+            }).then(() => {
+                alert('Exam submitted successfully!');
+                document.getElementById('quizContainer').innerHTML = '<h3>Thank you for completing this exam! Results will be ready in 12 days</h3>';
+            }).catch((error) => {
+                console.error('Error submitting quiz:', error);
+                alert('Failed to submit Exam. Please try again.');
+            });
+        }
+    </script>
+</body>
+</html>
