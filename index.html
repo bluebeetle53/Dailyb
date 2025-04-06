@@ -1,387 +1,778 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Join Ludo Naira and start earning ₦5,000 by playing and winning Ludo games. Sign up now to get started and enjoy exciting rewards!">
-  <meta name="keywords" content="Ludo Naira, Earn Money Playing Ludo, Ludo Game Nigeria, Ludo Earnings, Play and Earn Ludo">
-  <meta name="author" content="Ludo Naira Team">
-  <meta property="og:title" content="Ludo Naira - Earn ₦5,000 by Playing Ludo">
-  <meta property="og:description" content="Sign up now on Ludo Naira and earn ₦5,000 by winning Ludo games. Start your gaming journey today!">
-  <meta property="og:image" content="https://www.ludonaira.com/LudoNaira_files/ludo.png">
-  <meta property="og:url" content="https://www.ludonaira">
-  <meta property="og:type" content="website">
-  <title>Ludo Naira - Signup</title>
-  <link rel="icon" href="https://www.ludonaira.com/LudoNaira_files/ludo.png" type="image/png">
-  <title>Ludo Naira - Signup</title>
-  <style>
-    /* General Styles */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f9fafc;
-}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Join Social Payout and start earning ₦5,000 by participating in our social platform. Sign up now to get started and enjoy exciting rewards!"
+    />
+    <meta
+      name="keywords"
+      content="Social Payout, Earn Money Online, Social Earnings, Nigeria, Make Money Online"
+    />
+    <meta name="author" content="Social Payout Team" />
+    <meta
+      property="og:title"
+      content="Social Payout - Earn ₦5,000 by Participating"
+    />
+    <meta
+      property="og:description"
+      content="Sign up now on Social Payout and earn ₦5,000 by engaging with our platform. Start your journey today!"
+    />
+    <meta
+      property="og:image"
+      content="https://example.com/social-payout-logo.png"
+    />
+    <meta property="og:url" content="https://www.socialpayout.com" />
+    <meta property="og:type" content="website" />
+    <title>Social Payout - Signup</title>
+    <link
+      rel="icon"
+      href="https://example.com/social-payout-logo.png"
+      type="image/png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* General Styles */
+      :root {
+        --primary: #075305;
+        --primary-dark: #077a05;
+        --secondary: #099c49;
+        --accent: #011f0a;
+        --success: #069024;
+        --text: #2b2d42;
+        --text-light: #8d99ae;
+        --bg: #f8f9fa;
+        --card-bg: #ffffff;
+        --shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        --radius: 12px;
+        --transition: all 0.3s ease;
+      }
 
-/* Signup Container */
-.signup-container {
-  max-width: 400px;
-  margin: 0px auto;
-  padding: 20px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  
-}
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-.logo {
-  width: 130px;
-  height: 130px;
-  margin-bottom: 0px;
-}
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
 
-h1 {
-  font-size: 24px;
-  margin-bottom: 5px;
-  margin-top: 0px;
-}
+      /* Notification Bar */
+      .notification-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        color: white;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
 
-p {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 20px;
-}
+      .notification-content {
+        display: flex;
+        align-items: center;
+        max-width: 1200px;
+        width: 100%;
+      }
 
-/* Form Inputs */
-.input-group {
-  margin-bottom: 15px;
-  text-align: left;
-}
+      .notification-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        margin-right: 12px;
+        object-fit: cover;
+      }
 
-.input-group label {
-  display: block;
-  font-size: 14px;
-  margin-bottom: 5px;
-}
+      .notification-text {
+        font-size: 14px;
+        font-weight: 500;
+        flex-grow: 1;
+      }
 
-.input-group input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 14px;
-}
+      /* Main Container */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 80px 20px 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+      }
 
-.input-group button {
-  margin-top: 5px;
-  background: #ff9800;
-  color: white;
-  border: none;
-  padding: 8px;
-  border-radius: 5px;
-  cursor: pointer;
-}
+      /* Signup Card */
+      .signup-card {
+        width: 100%;
+        max-width: 480px;
+        background: var(--card-bg);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        margin-bottom: 30px;
+        transition: var(--transition);
+      }
 
-button#proceed-btn {
-  background: green;
-  color: white;
-  font-size: 16px;
-  padding: 10px;
-  width: 100%;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
+      .signup-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+      }
 
-/* Bottom Sheet */
-.bottom-sheet {
-  position: fixed;
-  bottom: -100%;
-  left: 0;
-  width: 100%;
-  background: white;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
-  transition: bottom 0.3s ease;
-  z-index: 1000;
-}
+      .card-header {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        padding: 30px;
+        text-align: center;
+        position: relative;
+      }
 
-.sheet-content {
-  padding: 20px;
-}
+      .logo-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-.sheet-content h2 {
-  font-size: 18px;
-}
+      .logo {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 15px;
+        border-radius: 50%;
+        border: 3px solid white;
+        object-fit: cover;
+      }
 
-.sheet-content p {
-  font-size: 14px;
-  margin: 10px 0;
-}
+      .card-header h1 {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
 
-.sheet-content ul {
-  list-style: none;
-  padding: 0;
-}
+      .card-header p {
+        font-size: 16px;
+        opacity: 0.9;
+        font-weight: 300;
+      }
 
-.sheet-content li {
-  font-size: 14px;
-  margin-bottom: 5px;
-}
+      .card-body {
+        padding: 30px;
+      }
 
-#confirm-transfer-btn, #close-sheet-btn {
-  margin-top: 15px;
-  background: green;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
+      /* Form Styles */
+      .form-group {
+        margin-bottom: 20px;
+      }
 
-/* Dialog */
-.dialog {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 2000;
-  align-items: center;
-  justify-content: center;
-}
+      .form-group label {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 8px;
+        color: var(--text);
+      }
 
-.dialog-content {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  text-align: center;
-}
+      .form-control {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 15px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        transition: var(--transition);
+        background-color: #f5f7fa;
+      }
 
+      .form-control:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+      }
 
-/* Notification Styling */
-.notification {
-    width: 90%;
-    max-width: 600px;
-    background: green;
-    border: 1px solid #f0e1c6;
-    border-radius: 25px;
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
-    margin: 0px auto;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
+      .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: var(--transition);
+      }
 
-.notification img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        width: 100%;
+      }
 
-.notification span {
-    font-size: 14px;
-    color: white;
-}
-  </style>
-  <link rel="icon" href="ludo.png">
-</head>
-<body>
-  
-  
-   <div class="notification" id="notification">
-        <img id="profileIcon" src="" alt="Profile Icon" />
-        <span id="notificationText"></span>
+      .btn-primary:hover {
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--secondary)
+        );
+        transform: translateY(-2px);
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 1px solid var(--primary);
+        color: var(--primary);
+      }
+
+      .btn-outline:hover {
+        background: rgba(67, 97, 238, 0.1);
+      }
+
+      .coupon-group {
+        display: flex;
+        gap: 10px;
+      }
+
+      .coupon-group .form-control {
+        flex-grow: 1;
+      }
+
+      /* Bottom Sheet */
+      .bottom-sheet {
+        position: fixed;
+        bottom: -100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.15);
+        transition: bottom 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        z-index: 1050;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+
+      .bottom-sheet.active {
+        bottom: 0;
+      }
+
+      .sheet-header {
+        padding: 20px;
+        border-bottom: 1px solid #f0f0f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .sheet-header h2 {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .sheet-content {
+        padding: 20px;
+      }
+
+      .payment-info {
+        background: #f9f9f9;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 20px;
+      }
+
+      .payment-info ul {
+        list-style: none;
+      }
+
+      .payment-info li {
+        margin-bottom: 8px;
+        font-size: 14px;
+      }
+
+      .payment-info strong {
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      /* File Input */
+      .file-input {
+        position: relative;
+        margin-bottom: 20px;
+      }
+
+      .file-input input {
+        position: absolute;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+      }
+
+      .file-input-label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        border: 2px dashed #e0e0e0;
+        border-radius: 8px;
+        background: #f9f9f9;
+        text-align: center;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .file-input-label:hover {
+        border-color: var(--accent);
+        background: rgba(67, 97, 238, 0.05);
+      }
+
+      .file-input-label i {
+        font-size: 24px;
+        color: var(--primary);
+        margin-bottom: 10px;
+      }
+
+      .file-input-label span {
+        font-size: 14px;
+        color: var(--text-light);
+      }
+
+      /* Dialog */
+      .dialog {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1100;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .dialog.active {
+        display: flex;
+      }
+
+      .dialog-content {
+        background: white;
+        border-radius: var(--radius);
+        width: 90%;
+        max-width: 400px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: var(--shadow);
+        animation: fadeIn 0.3s ease;
+      }
+
+      .dialog-message {
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .container {
+          padding: 70px 15px 30px;
+        }
+
+        .signup-card {
+          max-width: 100%;
+        }
+
+        .card-header {
+          padding: 25px 20px;
+        }
+
+        .card-body {
+          padding: 25px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Notification Bar -->
+    <div class="notification-bar">
+      <div class="notification-content">
+        <img
+          id="profileIcon"
+          class="notification-icon"
+          src=""
+          alt="Profile Icon"
+        />
+        <span id="notificationText" class="notification-text"></span>
+      </div>
     </div>
-  
-  
-  
-  <div class="signup-container">
-    <header>
-      <img src="https://www.ludonaira.com/LudoNaira_files/ludo.png" alt="Ludo Naira Logo" class="logo">
-      <h1>Ludo Naira</h1>
-      <p>Earn ₦5,000 by playing Ludo if you win!</p>
-    </header>
 
-    <form id="signup-form">
-      <div class="input-group">
-        <label for="first-name">First Name and Surname</label>
-        <input type="text" id="first-name" placeholder="Enter your full name" required>
+    <!-- Main Content -->
+    <div class="container">
+      <div class="signup-card">
+        <div class="card-header">
+          <div class="logo-container">
+            <img
+              src="https://cdn-icons-png.flaticon.com/128/349/349279.png"
+              alt="Social Payout Logo"
+              class="logo"
+            />
+            <h1>Social Payout</h1>
+            <p>Earn ₦5,000 by participating in our platform!</p>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <form id="signup-form">
+            <div class="form-group">
+              <label for="first-name">Full Name</label>
+              <input
+                type="text"
+                id="first-name"
+                class="form-control"
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                class="form-control"
+                placeholder="Enter your phone number"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                placeholder="Create a password"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="coupon">Coupon Code (Optional)</label>
+              <div class="coupon-group">
+                <input
+                  type="text"
+                  id="coupon"
+                  class="form-control"
+                  placeholder="Enter coupon code"
+                />
+                <button
+                  type="button"
+                  id="buy-coupon-btn"
+                  class="btn btn-outline"
+                >
+                  Buy Code
+                </button>
+              </div>
+            </div>
+
+            <button type="button" id="proceed-btn" class="btn btn-primary">
+              Get Started
+            </button>
+          </form>
+        </div>
       </div>
-
-      <div class="input-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" placeholder="Enter your email" required>
-      </div>
-
-      <div class="input-group">
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" placeholder="Enter your phone number" required>
-      </div>
-
-      <div class="input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter your password" required>
-      </div>
-
-      <div class="input-group">
-        <label for="coupon">Coupon Code</label>
-        <input type="text" id="coupon" placeholder="Enter coupon code">
-        <button type="button" id="buy-coupon-btn">Buy Coupon Code</button>
-      </div>
-
-      <button type="button" id="proceed-btn">Proceed</button>
-    </form>
-  </div>
-
-  <!-- Bottom Sheet -->
-  <div id="bottom-sheet" class="bottom-sheet">
-    <div class="sheet-content">
-      <h2>Coupon Code Cost: ₦1,500</h2>
-      <p>Make payment to the account below:</p>
-      <ul>
-        <li><strong>Account Number:</strong> 8918814764 </li>
-        <li><strong>Bank:</strong> Nombank MFB </li>
-        <li><strong>Account Name:</strong> PRINCE NDOKWU </li>
-      </ul>
-
-      <div class="input-group">
-        <label for="receipt">Upload Transaction Receipt</label>
-        <input type="file" id="receipt">
-      </div>
-
-      <div class="input-group">
-        <label for="whatsapp">Enter your WhatsApp Number</label>
-        <input type="tel" id="whatsapp" placeholder="Enter WhatsApp number">
-      </div>
-
-      <p>🔔 Click on the button below if you've made the transfer. If your deposit is valid, we'll send you the coupon code via WhatsApp.</p>
-
-      <button id="confirm-transfer-btn">I Have Made the Transfer</button>
-      <button id="close-sheet-btn">Close</button>
     </div>
-  </div>
 
-  <!-- Dialog Box -->
-  <div id="dialog" class="dialog">
-    <div class="dialog-content">
-      <p id="dialog-message"></p>
-      <button id="close-dialog-btn">Close</button>
+    <!-- Bottom Sheet -->
+    <div id="bottom-sheet" class="bottom-sheet">
+      <div class="sheet-header">
+        <h2>Purchase Coupon Code</h2>
+        <button
+          id="close-sheet-btn"
+          class="btn btn-outline"
+          style="padding: 8px 12px"
+        >
+          Close
+        </button>
+      </div>
+
+      <div class="sheet-content">
+        <div class="payment-info">
+          <h3 style="font-size: 18px; margin-bottom: 15px; color: var(--text)">
+            Coupon Code Cost: ₦1,200
+          </h3>
+          <p style="margin-bottom: 15px; font-size: 14px">
+            Make payment to the account below:
+          </p>
+          <ul>
+            <li><strong>Account Number:</strong> 8918814764</li>
+            <li><strong>Bank:</strong> Nombank MFB</li>
+            <li><strong>Account Name:</strong> PRINCE NDOKWU</li>
+          </ul>
+        </div>
+
+        <div class="form-group">
+          <label for="whatsapp">Your WhatsApp Number</label>
+          <input
+            type="tel"
+            id="whatsapp"
+            class="form-control"
+            placeholder="Enter WhatsApp number for delivery"
+          />
+        </div>
+
+        <div class="file-input">
+          <label class="file-input-label" for="receipt">
+            <i>📁</i>
+            <span>Upload your payment receipt</span>
+            <input type="file" id="receipt" accept="image/*,.pdf" />
+          </label>
+        </div>
+
+        <p
+          style="
+            font-size: 14px;
+            color: var(--text-light);
+            margin: 20px 0;
+            text-align: center;
+          "
+        >
+          🔔 After payment, upload your receipt and we'll send the coupon code
+          to your WhatsApp within 24 hours.
+        </p>
+
+        <button id="confirm-transfer-btn" class="btn btn-primary">
+          Confirm Payment
+        </button>
+      </div>
     </div>
-  </div>
-  <script>
-    const couponInput = document.getElementById('coupon');
-const proceedBtn = document.getElementById('proceed-btn');
-const buyCouponBtn = document.getElementById('buy-coupon-btn');
-const bottomSheet = document.getElementById('bottom-sheet');
-const closeSheetBtn = document.getElementById('close-sheet-btn');
-const confirmTransferBtn = document.getElementById('confirm-transfer-btn');
-const dialog = document.getElementById('dialog');
-const dialogMessage = document.getElementById('dialog-message');
-const closeDialogBtn = document.getElementById('close-dialog-btn');
 
+    <!-- Dialog Box -->
+    <div id="dialog" class="dialog">
+      <div class="dialog-content">
+        <p id="dialog-message" class="dialog-message"></p>
+        <button
+          id="close-dialog-btn"
+          class="btn btn-primary"
+          style="width: auto; padding: 10px 20px"
+        >
+          Close
+        </button>
+      </div>
+    </div>
 
+    <script>
+      // DOM Elements
+      const couponInput = document.getElementById("coupon");
+      const proceedBtn = document.getElementById("proceed-btn");
+      const buyCouponBtn = document.getElementById("buy-coupon-btn");
+      const bottomSheet = document.getElementById("bottom-sheet");
+      const closeSheetBtn = document.getElementById("close-sheet-btn");
+      const confirmTransferBtn = document.getElementById(
+        "confirm-transfer-btn"
+      );
+      const dialog = document.getElementById("dialog");
+      const dialogMessage = document.getElementById("dialog-message");
+      const closeDialogBtn = document.getElementById("close-dialog-btn");
 
+      // Buy Coupon Button
+      buyCouponBtn.addEventListener("click", () => {
+        bottomSheet.classList.add("active");
+      });
 
-    
-// Proceed Button
-// proceedBtn.addEventListener('click', () => {
-//  if (couponInput.value !== '1220Ludo4all') {
-//    dialogMessage.textContent = 'Incorrect coupon. Please input the correct coupon code or buy one.';
-//    dialog.style.display = 'flex';
-//  }
-// });
+      // Close Bottom Sheet
+      closeSheetBtn.addEventListener("click", () => {
+        bottomSheet.classList.remove("active");
+      });
 
+      // Confirm Transfer
+      confirmTransferBtn.addEventListener("click", () => {
+        dialogMessage.textContent =
+          "Your payment is being verified. We'll send your coupon code to your WhatsApp shortly.";
+        dialog.classList.add("active");
+        bottomSheet.classList.remove("active");
+      });
 
+      // Close Dialog
+      closeDialogBtn.addEventListener("click", () => {
+        dialog.classList.remove("active");
+      });
 
+      // Proceed Button
+      proceedBtn.addEventListener("click", () => {
+        if (couponInput.value === "1220Social4all") {
+          // Redirect if coupon is correct
+          window.location.href = "home.html";
+        } else {
+          // Show error message if coupon is incorrect
+          dialogMessage.textContent =
+            "Incorrect coupon code. Please enter the correct code or purchase one.";
+          dialog.classList.add("active");
+        }
+      });
+    </script>
 
+    <script>
+      // List of 100 Nigerian Names (Across Tribes)
+      const nigerianNames = [
+        "Adeola",
+        "Chinaza",
+        "Olumide",
+        "Ifeanyi",
+        "Ngozi",
+        "Babatunde",
+        "Ezinne",
+        "Tolu",
+        "Chukwuemeka",
+        "Funmilayo",
+        "Halima",
+        "Yakubu",
+        "Kemi",
+        "Emeka",
+        "Zainab",
+        "Segun",
+        "Uchenna",
+        "Amina",
+        "Femi",
+        "Ogechi",
+        "Hassan",
+        "Ibrahim",
+        "Efe",
+        "Abimbola",
+        "Obinna",
+        "Fatima",
+        "Gbenga",
+        "Maryam",
+        "Tope",
+        "Blessing",
+        "Chijioke",
+        "Ngozika",
+        "Suleiman",
+        "Oluwaseun",
+        "Chidimma",
+        "Osas",
+        "Abdulahi",
+        "Chinwe",
+        "Jamilu",
+        "Fadeke",
+        "Tijani",
+        "Eniola",
+        "Abubakar",
+        "Isioma",
+        "Nkem",
+        "Abraham",
+        "Jumoke",
+        "Amara",
+        "Teniola",
+        "Idris",
+        "Yusuf",
+        "Nkiruka",
+        "Hauwa",
+        "Adamu",
+        "Ebere",
+        "Paulina",
+        "Adewale",
+        "Umar",
+        "Chisom",
+        "Ndidi",
+        "Taiwo",
+        "Kelechi",
+        "Fatimah",
+        "Nuhu",
+        "Osinachi",
+        "Damilola",
+        "Chinyere",
+        "Aisha",
+        "Kunle",
+        "Seyi",
+        "Modupe",
+        "Onyeka",
+        "Sadiq",
+        "Chima",
+        "Ayo",
+        "Musa",
+        "Nnenna",
+        "Obinna",
+        "Adeyemi",
+        "Ijeoma",
+        "Sule",
+        "Oluwatobi",
+        "Chigozie",
+        "Amaka",
+        "Bose",
+        "Aliyu",
+        "Eucharia",
+        "Hakeem",
+        "Adaora",
+        "Ibrahim",
+        "Temitope",
+        "Ugochi",
+        "Nafisa",
+        "Yahaya",
+      ];
 
-    
-// Buy Coupon Button
-buyCouponBtn.addEventListener('click', () => {
-  bottomSheet.style.bottom = '0';
-});
+      // Function to display a random notification
+      function displayNotification() {
+        // Select a random name
+        const randomName =
+          nigerianNames[Math.floor(Math.random() * nigerianNames.length)];
 
-// Close Bottom Sheet
-closeSheetBtn.addEventListener('click', () => {
-  bottomSheet.style.bottom = '-100%';
-});
+        // Randomly select Male or Female profile icon
+        const isMale = Math.random() > 0.5;
+        const profileIcon = isMale
+          ? "https://cdn-icons-png.flaticon.com/128/14663/14663189.png"
+          : "https://cdn-icons-png.flaticon.com/128/18269/18269717.png";
 
-// Confirm Transfer
-confirmTransferBtn.addEventListener('click', () => {
-  dialogMessage.textContent = 'Your deposit is awaiting verification.';
-  dialog.style.display = 'flex';
-});
+        // Update the notification content
+        document.getElementById("profileIcon").src = profileIcon;
+        document.getElementById(
+          "notificationText"
+        ).innerText = `${randomName} just earned ₦5,000 on Social Payout!`;
+      }
 
-// Close Dialog
-closeDialogBtn.addEventListener('click', () => {
-  dialog.style.display = 'none';
-});
-  </script>
-  
-  <script>
-// List of 100 Nigerian Names (Across Tribes)
-const nigerianNames = [
-    "Adeola", "Chinaza", "Olumide", "Ifeanyi", "Ngozi", "Babatunde", "Ezinne", 
-    "Tolu", "Chukwuemeka", "Funmilayo", "Halima", "Yakubu", "Kemi", "Emeka", 
-    "Zainab", "Segun", "Uchenna", "Amina", "Femi", "Ogechi", "Hassan", 
-    "Ibrahim", "Efe", "Abimbola", "Obinna", "Fatima", "Gbenga", "Maryam", 
-    "Tope", "Blessing", "Chijioke", "Ngozika", "Suleiman", "Oluwaseun", 
-    "Chidimma", "Osas", "Abdulahi", "Chinwe", "Jamilu", "Fadeke", "Tijani", 
-    "Eniola", "Abubakar", "Isioma", "Nkem", "Abraham", "Jumoke", "Amara", 
-    "Teniola", "Idris", "Yusuf", "Nkiruka", "Hauwa", "Adamu", "Ebere", 
-    "Paulina", "Adewale", "Umar", "Chisom", "Ndidi", "Taiwo", "Kelechi", 
-    "Fatimah", "Nuhu", "Osinachi", "Damilola", "Chinyere", "Aisha", "Kunle", 
-    "Seyi", "Modupe", "Onyeka", "Sadiq", "Chima", "Ayo", "Musa", "Nnenna", 
-    "Obinna", "Adeyemi", "Ijeoma", "Sule", "Oluwatobi", "Chigozie", "Amaka", 
-    "Bose", "Aliyu", "Eucharia", "Hakeem", "Adaora", "Ibrahim", "Temitope", 
-    "Ugochi", "Nafisa", "Yahaya"
-];
+      // Initial call
+      displayNotification();
 
-// Function to display a random notification
-function displayNotification() {
-    // Select a random name
-    const randomName = nigerianNames[Math.floor(Math.random() * nigerianNames.length)];
-
-    // Randomly select Male or Female profile icon
-    const isMale = Math.random() > 0.5;
-    const profileIcon = isMale 
-        ? 'https://cdn-icons-png.flaticon.com/128/14663/14663189.png' 
-        : 'https://cdn-icons-png.flaticon.com/128/18269/18269717.png';
-
-    // Update the notification content
-    document.getElementById('profileIcon').src = profileIcon;
-    document.getElementById('notificationText').innerText = `${randomName} won the game & Withdrawed ₦5,000`;
-}
-
-// Initial call
-displayNotification();
-
-// Refresh notification every 2 seconds
-setInterval(displayNotification, 2000);
-  </script>
-
-
-
-<script>
-    
-// Proceed Button Click Event
-proceedBtn.addEventListener('click', () => {
-  if (couponInput.value === '1220Ludo4all') {
-    // Redirect if coupon is correct
-    window.location.href = 'home-ludo.html';
-  } else {
-    // Show error message if coupon is incorrect
-    dialogMessage.textContent = 'Incorrect coupon. Please input the correct coupon code or buy one.';
-    dialog.style.display = 'flex';
-  }
-});
-</script>
-
-  
-  
-</body>
+      // Refresh notification every 3 seconds
+      setInterval(displayNotification, 3000);
+    </script>
+  </body>
 </html>
