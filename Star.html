@@ -1,256 +1,1187 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The Next Star - A sing and win contest where you can showcase your talent and stand a chance to win up to ₦1,000,000. Register now and start your journey to stardom!">
-    <meta name="keywords" content="Singing Contest, Talent Show, The Next Star, Win ₦1,000,000, Music Competition">
-    <meta name="author" content="The Next Star Team">
-    <title>The Next Star - Sing & Win Contest</title>
-    <link rel="icon" href="https://thenextstar.co/thenextstarlogo.png" type="image/png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="The Next Star - A premium singing competition where you can showcase your talent and win amazing prizes. Register now for your shot at stardom!"
+    />
+    <meta
+      name="keywords"
+      content="Singing Contest, Talent Show, Music Competition, Win Big, The Next Star"
+    />
+    <meta name="author" content="The Next Star Team" />
+    <title>The Next Star | Premium Singing Competition</title>
+    <link
+      rel="icon"
+      href="https://thenextstar.co/thenextstarlogo.png"
+      type="image/png"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        /* General Styling */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #4A00E0, #8E2DE2);
-            color: #fff;
-        }
+      :root {
+        --primary: #8e2de2;
+        --primary-dark: #4a00e0;
+        --secondary: #ff4d4d;
+        --accent: #00f5d4;
+        --light: #f8f9fa;
+        --dark: #212529;
+        --gray: #6c757d;
+        --success: #28a745;
+        --warning: #ffc107;
+        --danger: #dc3545;
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12),
+          0 1px 2px rgba(0, 0, 0, 0.24);
+        --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1),
+          0 5px 10px rgba(0, 0, 0, 0.05);
+        --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15),
+          0 10px 10px rgba(0, 0, 0, 0.05);
+      }
 
-        header {
-            text-align: center;
-            margin: 20px 0;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        header img {
-            width: 150px;
-            height: auto;
-        }
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        color: var(--dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
 
-        h1, h2 {
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 600px;
-            margin: 20px auto;
-            background: #fff;
-            color: #333;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        input, button, textarea {
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            background-color: #8E2DE2;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-        }
-
-        button:hover {
-            background-color: #4A00E0;
-        }
-
-        table {
-            width: 100%;
-            margin: 20px 0;
-            border-collapse: collapse;
-        }
-
-        table, th, td {
-            border: 1px solid #ccc;
-        }
-
-        th, td {
-            text-align: center;
-            padding: 10px;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .toast {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #28a745;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            z-index: 1000;
-        }
-
-        .side-image {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .side-image img {
-            width: 80%;
-            max-width: 300px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        
-        /* WhatsApp FAB Styling */
-    .whatsapp-fab {
+      /* Particles.js background */
+      #particles-js {
         position: fixed;
-        bottom: 20px;
-        right: 20px;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        opacity: 0.3;
+      }
+
+      /* Header Styles */
+      header {
+        position: relative;
+        padding: 2rem 0;
+        text-align: center;
+        background: linear-gradient(
+          135deg,
+          rgba(142, 45, 226, 0.9) 0%,
+          rgba(74, 0, 224, 0.9) 100%
+        );
+        color: white;
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        margin-bottom: 3rem;
+        box-shadow: var(--shadow-lg);
+        z-index: 10;
+      }
+
+      .logo-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .logo-img {
+        width: 120px;
+        height: 120px;
+        object-fit: contain;
+        filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+        transition: all 0.3s ease;
+      }
+
+      .logo-img:hover {
+        transform: scale(1.05) rotate(5deg);
+      }
+
+      h1 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 3rem;
+        font-weight: 800;
+        margin-top: 1rem;
+        background: linear-gradient(to right, #fff, var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin: 0.5rem 0;
+        color: white;
+      }
+
+      .tagline {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      /* Main Container */
+      .main-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      /* Form Container */
+      .form-container {
+        position: relative;
+        background: white;
+        border-radius: 15px;
+        box-shadow: var(--shadow-xl);
+        overflow: hidden;
+        margin: 2rem auto;
+        max-width: 800px;
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .form-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .form-header {
+        background: linear-gradient(
+          to right,
+          var(--primary),
+          var(--primary-dark)
+        );
+        color: white;
+        padding: 1.5rem;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 600;
+        position: relative;
+      }
+
+      .form-header::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-top: 15px solid var(--primary-dark);
+      }
+
+      .form-body {
+        padding: 2rem;
+      }
+
+      /* Form Elements */
+      .form-group {
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--dark);
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #e9ecef;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background-color: #f8f9fa;
+      }
+
+      .form-control:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(142, 45, 226, 0.2);
+        outline: none;
+        background-color: white;
+      }
+
+      .form-control::placeholder {
+        color: var(--gray);
+        opacity: 0.7;
+      }
+
+      .file-upload {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+      }
+
+      .file-upload-input {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+
+      .file-upload-label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 15px;
+        background-color: #f8f9fa;
+        border: 2px dashed #e9ecef;
+        border-radius: 8px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .file-upload-label:hover {
+        background-color: #e9ecef;
+        border-color: var(--primary);
+      }
+
+      .file-upload-icon {
+        margin-right: 10px;
+        color: var(--primary);
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .btn-primary {
+        background: linear-gradient(
+          to right,
+          var(--primary),
+          var(--primary-dark)
+        );
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: linear-gradient(
+          to right,
+          var(--primary-dark),
+          var(--primary)
+        );
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .btn-primary:active {
+        transform: translateY(0);
+      }
+
+      .btn-block {
+        width: 100%;
+      }
+
+      .btn-icon {
+        margin-right: 8px;
+      }
+
+      /* Progress Steps */
+      .progress-steps {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+        position: relative;
+      }
+
+      .progress-steps::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background-color: #e9ecef;
+        z-index: 1;
+        transform: translateY(-50%);
+      }
+
+      .progress-bar {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 4px;
+        background: linear-gradient(
+          to right,
+          var(--primary),
+          var(--primary-dark)
+        );
+        z-index: 2;
+        transform: translateY(-50%);
+        transition: width 0.5s ease;
+      }
+
+      .step {
+        position: relative;
+        z-index: 3;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #e9ecef;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gray);
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .step.active {
+        background: linear-gradient(
+          to right,
+          var(--primary),
+          var(--primary-dark)
+        );
+        color: white;
+        transform: scale(1.1);
+        box-shadow: 0 0 0 4px rgba(142, 45, 226, 0.3);
+      }
+
+      .step.completed {
+        background-color: var(--success);
+        color: white;
+      }
+
+      /* Prize Table */
+      .prize-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 2rem 0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+      }
+
+      .prize-table thead {
+        background: linear-gradient(
+          to right,
+          var(--primary),
+          var(--primary-dark)
+        );
+        color: white;
+      }
+
+      .prize-table th {
+        padding: 15px;
+        text-align: center;
+        font-weight: 600;
+      }
+
+      .prize-table tbody tr:nth-child(odd) {
+        background-color: #f8f9fa;
+      }
+
+      .prize-table tbody tr:nth-child(even) {
+        background-color: white;
+      }
+
+      .prize-table td {
+        padding: 12px 15px;
+        text-align: center;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .prize-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .prize-table .position {
+        font-weight: 700;
+        color: var(--primary-dark);
+      }
+
+      .prize-table .prize {
+        font-weight: 700;
+        color: var(--success);
+      }
+
+      /* Payment Info */
+      .payment-info {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-left: 4px solid var(--primary);
+      }
+
+      .payment-info-item {
+        display: flex;
+        margin-bottom: 0.5rem;
+      }
+
+      .payment-info-label {
+        font-weight: 600;
+        min-width: 150px;
+        color: var(--dark);
+      }
+
+      .payment-info-value {
+        color: var(--primary-dark);
+        font-weight: 600;
+      }
+
+      /* Toast Notification */
+      .toast {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        background-color: var(--success);
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        box-shadow: var(--shadow-lg);
+        display: flex;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      .toast-icon {
+        margin-right: 10px;
+        font-size: 1.2rem;
+      }
+
+      /* Side Image */
+      .side-image {
+        text-align: center;
+        margin: 2rem 0;
+        position: relative;
+      }
+
+      .side-image img {
+        max-width: 100%;
+        border-radius: 15px;
+        box-shadow: var(--shadow-lg);
+        transition: all 0.5s ease;
+      }
+
+      .side-image img:hover {
+        transform: scale(1.02);
+      }
+
+      /* Floating Action Button */
+      .fab {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
         width: 60px;
         height: 60px;
-        background-color: #4A00E0;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        z-index: 1000;
-        transition: transform 0.3s ease-in-out;
-    }
+        color: white;
+        font-size: 24px;
+        box-shadow: var(--shadow-lg);
+        z-index: 100;
+        transition: all 0.3s ease;
+        animation: pulse 2s infinite;
+      }
 
-    .whatsapp-fab:hover {
-        transform: scale(1.1);
-    }
+      .fab-whatsapp {
+        background: linear-gradient(to right, #25d366, #128c7e);
+      }
 
-    .whatsapp-fab img {
-        width: 40px;
-        height: 40px;
-    }
-    
+      .fab:hover {
+        transform: scale(1.1) rotate(10deg);
+        box-shadow: var(--shadow-xl);
+      }
+
+      /* Animations */
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Page Transitions */
+      .page {
+        display: none;
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+
+      .page.active {
+        display: block;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+        }
+
+        .tagline {
+          font-size: 1rem;
+        }
+
+        .form-header {
+          font-size: 1.3rem;
+          padding: 1rem;
+        }
+
+        .form-body {
+          padding: 1.5rem;
+        }
+
+        .btn {
+          padding: 10px 20px;
+          font-size: 0.9rem;
+        }
+
+        .fab {
+          width: 50px;
+          height: 50px;
+          font-size: 20px;
+          bottom: 20px;
+          right: 20px;
+        }
+      }
     </style>
-    <script>
-        function showPage(pageNumber) {
-            document.getElementById('page1').classList.add('hidden');
-            document.getElementById('page2').classList.add('hidden');
-            document.getElementById('page3').classList.add('hidden');
-            
-            document.getElementById('page' + pageNumber).classList.remove('hidden');
-        }
+  </head>
+  <body>
+    <!-- Particles.js Background -->
+    <div id="particles-js"></div>
 
-        function submitPayment() {
-            document.getElementById('toast').style.display = 'block';
-            setTimeout(() => {
-                document.getElementById('toast').style.display = 'none';
-            }, 5000);
-        }
-    </script>
-</head>
-<body>
-
-    <!-- Header with Logo -->
+    <!-- Header Section -->
     <header>
-        <img src="https://thenextstar.co/thenextstarlogo.png" alt="The Next Star Logo">
+      <div class="logo-container">
+        <img
+          src="https://thenextstar.co/thenextstarlogo.png"
+          alt="The Next Star Logo"
+          class="logo-img"
+        />
+        <h1>The Next Star</h1>
+        <h2>Sing & Win Competition</h2>
+        <p class="tagline">
+          Showcase your talent and stand a chance to win amazing prizes in
+          Nigeria's premier singing competition!
+        </p>
+      </div>
     </header>
 
-    <h1>The Next Star</h1>
-    <h2>Sing & Win Contest</h2>
-
-    <!-- First Page -->
-    <div id="page1" class="container">
-        <h3>Registration Form</h3>
-        <input type="text" placeholder="Full Name" required>
-        <input type="tel" placeholder="Phone Number" required>
-        <input type="email" placeholder="Email Address" required>
-        <input type="text" placeholder="WhatsApp Number" required>
-        <label>Upload Image</label>
-        <input type="file" accept="image/*" required>
-        
-        <h4>Bank Details</h4>
-        <input type="text" placeholder="Account Number" required>
-        <input type="text" placeholder="Account Name" required>
-        <input type="text" placeholder="Bank Name" required>
-
-        <button onclick="showPage(2)">Next</button>
-    </div>
-
-    <!-- Second Page -->
-    <div id="page2" class="container hidden">
-        <h3>Stand a Chance to Win ₦1,000,000</h3>
-        <p>1) Registration Fee: NGN 5,000 (Compulsory)</p>
-        <p>2) After registration, you'll be able to upload your songs and invite friends to vote.</p>
-
-        <div class="side-image">
-            <img src="https://thenextstar.co/sideimg.png" alt="The Next Star Side Image">
+    <!-- Main Content -->
+    <div class="main-container">
+      <!-- Registration Form -->
+      <div class="form-container">
+        <div class="form-header">
+          <span id="form-title">Registration Form</span>
         </div>
 
-        <h4>Prize Breakdown</h4>
-        <table>
-            <tr>
-                <th>Position</th>
-                <th>Prize</th>
-            </tr>
-            <tr>
-                <td>1st</td>
-                <td>₦1,000,000</td>
-            </tr>
-            <tr>
-                <td>2nd</td>
-                <td>₦700,000</td>
-            </tr>
-            <tr>
-                <td>3rd</td>
-                <td>₦300,000</td>
-            </tr>
-            <tr>
-                <td>4th</td>
-                <td>₦100,000</td>
-            </tr>
-            <tr>
-                <td>5th</td>
-                <td>₦50,000</td>
-            </tr>
-        </table>
-        <button onclick="showPage(3)">Next</button>
+        <!-- Progress Steps -->
+        <div class="progress-steps">
+          <div class="progress-bar" style="width: 0%"></div>
+          <div class="step active" id="step1">1</div>
+          <div class="step" id="step2">2</div>
+          <div class="step" id="step3">3</div>
+        </div>
+
+        <div class="form-body">
+          <!-- Page 1: Registration Form -->
+          <div class="page active" id="page1">
+            <div class="form-group">
+              <label for="fullname" class="form-label">Full Name</label>
+              <input
+                type="text"
+                id="fullname"
+                class="form-control"
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                class="form-control"
+                placeholder="Enter your phone number"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                placeholder="Enter your email address"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="whatsapp" class="form-label">WhatsApp Number</label>
+              <input
+                type="tel"
+                id="whatsapp"
+                class="form-control"
+                placeholder="Enter your WhatsApp number"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Profile Photo</label>
+              <div class="file-upload">
+                <input
+                  type="file"
+                  id="profile-photo"
+                  class="file-upload-input"
+                  accept="image/*"
+                  required
+                />
+                <label for="profile-photo" class="file-upload-label">
+                  <i class="fas fa-camera file-upload-icon"></i>
+                  <span>Choose a photo</span>
+                </label>
+              </div>
+            </div>
+
+            <h4
+              style="
+                margin-top: 2rem;
+                margin-bottom: 1rem;
+                color: var(--primary-dark);
+              "
+            >
+              Bank Details
+            </h4>
+
+            <div class="form-group">
+              <label for="account-number" class="form-label"
+                >Account Number</label
+              >
+              <input
+                type="text"
+                id="account-number"
+                class="form-control"
+                placeholder="Enter your account number"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="account-name" class="form-label">Account Name</label>
+              <input
+                type="text"
+                id="account-name"
+                class="form-control"
+                placeholder="Enter your account name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="bank-name" class="form-label">Bank Name</label>
+              <input
+                type="text"
+                id="bank-name"
+                class="form-control"
+                placeholder="Enter your bank name"
+                required
+              />
+            </div>
+
+            <button class="btn btn-primary btn-block" onclick="nextPage(2)">
+              <i class="fas fa-arrow-right btn-icon"></i> Continue
+            </button>
+          </div>
+
+          <!-- Page 2: Competition Details -->
+          <div class="page" id="page2">
+            <h3
+              style="
+                text-align: center;
+                color: var(--primary-dark);
+                margin-bottom: 1.5rem;
+              "
+            >
+              Stand a Chance to Win
+              <span style="color: var(--success)">₦1,000,000</span>
+            </h3>
+
+            <div class="side-image">
+              <img
+                src="https://thenextstar.co/sideimg.png"
+                alt="The Next Star Competition"
+              />
+            </div>
+
+            <div
+              style="
+                background-color: #f0f8ff;
+                padding: 1.5rem;
+                border-radius: 10px;
+                margin: 1.5rem 0;
+              "
+            >
+              <h4 style="color: var(--primary-dark); margin-bottom: 1rem">
+                How It Works
+              </h4>
+              <ol style="padding-left: 1.5rem">
+                <li style="margin-bottom: 0.5rem">
+                  Registration Fee: <strong>₦5,000</strong> (Compulsory)
+                </li>
+                <li style="margin-bottom: 0.5rem">
+                  After registration, you'll be able to upload your performance
+                  video
+                </li>
+                <li style="margin-bottom: 0.5rem">
+                  Invite friends and fans to vote for you
+                </li>
+                <li>The contestants with the most votes win the prizes</li>
+              </ol>
+            </div>
+
+            <h4
+              style="
+                text-align: center;
+                color: var(--primary-dark);
+                margin: 2rem 0 1rem;
+              "
+            >
+              Prize Breakdown
+            </h4>
+
+            <table class="prize-table">
+              <thead>
+                <tr>
+                  <th>Position</th>
+                  <th>Prize</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="position">1st Place</td>
+                  <td class="prize">₦1,000,000</td>
+                </tr>
+                <tr>
+                  <td class="position">2nd Place</td>
+                  <td class="prize">₦700,000</td>
+                </tr>
+                <tr>
+                  <td class="position">3rd Place</td>
+                  <td class="prize">₦300,000</td>
+                </tr>
+                <tr>
+                  <td class="position">4th Place</td>
+                  <td class="prize">₦100,000</td>
+                </tr>
+                <tr>
+                  <td class="position">5th Place</td>
+                  <td class="prize">₦50,000</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                margin-top: 2rem;
+              "
+            >
+              <button
+                class="btn btn-primary"
+                style="width: 48%"
+                onclick="prevPage(1)"
+              >
+                <i class="fas fa-arrow-left btn-icon"></i> Back
+              </button>
+              <button
+                class="btn btn-primary"
+                style="width: 48%"
+                onclick="nextPage(3)"
+              >
+                <i class="fas fa-arrow-right btn-icon"></i> Continue
+              </button>
+            </div>
+          </div>
+
+          <!-- Page 3: Payment -->
+          <div class="page" id="page3">
+            <h3
+              style="
+                text-align: center;
+                color: var(--primary-dark);
+                margin-bottom: 1.5rem;
+              "
+            >
+              Complete Your Registration
+            </h3>
+
+            <div style="text-align: center; margin-bottom: 2rem">
+              <p>
+                Make a payment of
+                <strong style="color: var(--success); font-size: 1.2rem"
+                  >₦5,000</strong
+                >
+                to complete your registration.
+              </p>
+              <p style="color: var(--gray)">
+                Your registration will be confirmed after payment verification.
+              </p>
+            </div>
+
+            <div class="payment-info">
+              <h4 style="color: var(--primary-dark); margin-bottom: 1rem">
+                Payment Details
+              </h4>
+
+              <div class="payment-info-item">
+                <span class="payment-info-label">Bank Name:</span>
+                <span class="payment-info-value">Palmpay</span>
+              </div>
+
+              <div class="payment-info-item">
+                <span class="payment-info-label">Account Number:</span>
+                <span class="payment-info-value">6634433435</span>
+              </div>
+
+              <div class="payment-info-item">
+                <span class="payment-info-label">Account Name:</span>
+                <span class="payment-info-value">CHIDI NWOSU</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Payment Receipt</label>
+              <div class="file-upload">
+                <input
+                  type="file"
+                  id="payment-receipt"
+                  class="file-upload-input"
+                  accept="image/*"
+                  required
+                />
+                <label for="payment-receipt" class="file-upload-label">
+                  <i class="fas fa-receipt file-upload-icon"></i>
+                  <span>Upload payment receipt</span>
+                </label>
+              </div>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                margin-top: 2rem;
+              "
+            >
+              <button
+                class="btn btn-primary"
+                style="width: 48%"
+                onclick="prevPage(2)"
+              >
+                <i class="fas fa-arrow-left btn-icon"></i> Back
+              </button>
+              <button
+                class="btn btn-primary"
+                style="width: 48%"
+                onclick="submitPayment()"
+              >
+                <i class="fas fa-check-circle btn-icon"></i> Complete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-
-
-
-<!-- Floating WhatsApp FAB Icon -->
-<a href="https://wa.me/message/V7AGIZZ5QQEXI1?text=Hi%20the%20Next%20Star%20how%20are%20you%20doing" target="_blank" class="whatsapp-fab">
-    <img src="https://cdn-icons-png.flaticon.com/128/1383/1383269.png" alt="WhatsApp Icon">
-</a>
-
-
-    <!-- Third Page -->
-    <div id="page3" class="container hidden">
-        <h3>Complete Your Registration</h3>
-        <p>Make a payment of ₦5,000 to complete your registration.</p>
-        <p><strong>Bank Name:</strong> Palmpay</p>
-        <p><strong>Account Number:</strong> 8100921760</p>
-        <p><strong>Account Name:</strong> </p>
-
-        <label>Upload Transaction Receipt</label>
-        <input type="file" accept="image/*" required>
-
-        <button onclick="submitPayment()">Verify and Complete Registration</button>
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+      <i class="fas fa-check-circle toast-icon"></i>
+      <span
+        >Your payment details have been submitted! We'll contact you via
+        WhatsApp once verified.</span
+      >
     </div>
 
-    <div id="toast" class="toast">Your Payment details have been submitted and you'll be contacted via WhatsApp when your payment is confirmed.</div>
+    <!-- WhatsApp FAB -->
+    <a
+      href="https://wa.me/message/V7AGIZZ5QQEXI1?text=Hi%20the%20Next%20Star%20how%20are%20you%20doing"
+      target="_blank"
+      class="fab fab-whatsapp"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
 
-</body>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+      // Initialize particles.js
+      document.addEventListener("DOMContentLoaded", function () {
+        particlesJS("particles-js", {
+          particles: {
+            number: {
+              value: 80,
+              density: {
+                enable: true,
+                value_area: 800,
+              },
+            },
+            color: {
+              value: "#8e2de2",
+            },
+            shape: {
+              type: "circle",
+              stroke: {
+                width: 0,
+                color: "#000000",
+              },
+              polygon: {
+                nb_sides: 5,
+              },
+            },
+            opacity: {
+              value: 0.3,
+              random: false,
+              anim: {
+                enable: false,
+                speed: 1,
+                opacity_min: 0.1,
+                sync: false,
+              },
+            },
+            size: {
+              value: 3,
+              random: true,
+              anim: {
+                enable: false,
+                speed: 40,
+                size_min: 0.1,
+                sync: false,
+              },
+            },
+            line_linked: {
+              enable: true,
+              distance: 150,
+              color: "#8e2de2",
+              opacity: 0.2,
+              width: 1,
+            },
+            move: {
+              enable: true,
+              speed: 2,
+              direction: "none",
+              random: false,
+              straight: false,
+              out_mode: "out",
+              bounce: false,
+              attract: {
+                enable: false,
+                rotateX: 600,
+                rotateY: 1200,
+              },
+            },
+          },
+          interactivity: {
+            detect_on: "canvas",
+            events: {
+              onhover: {
+                enable: true,
+                mode: "grab",
+              },
+              onclick: {
+                enable: true,
+                mode: "push",
+              },
+              resize: true,
+            },
+            modes: {
+              grab: {
+                distance: 140,
+                line_linked: {
+                  opacity: 1,
+                },
+              },
+              bubble: {
+                distance: 400,
+                size: 40,
+                duration: 2,
+                opacity: 8,
+                speed: 3,
+              },
+              repulse: {
+                distance: 200,
+                duration: 0.4,
+              },
+              push: {
+                particles_nb: 4,
+              },
+              remove: {
+                particles_nb: 2,
+              },
+            },
+          },
+          retina_detect: true,
+        });
+      });
+
+      // Page navigation
+      let currentPage = 1;
+      const totalPages = 3;
+
+      function updateProgressBar() {
+        const progressPercentage = ((currentPage - 1) / (totalPages - 1)) * 100;
+        document.querySelector(
+          ".progress-bar"
+        ).style.width = `${progressPercentage}%`;
+
+        // Update step indicators
+        for (let i = 1; i <= totalPages; i++) {
+          const step = document.getElementById(`step${i}`);
+          if (i < currentPage) {
+            step.classList.remove("active");
+            step.classList.add("completed");
+          } else if (i === currentPage) {
+            step.classList.add("active");
+            step.classList.remove("completed");
+          } else {
+            step.classList.remove("active", "completed");
+          }
+        }
+      }
+
+      function showPage(pageNumber) {
+        document.querySelectorAll(".page").forEach((page) => {
+          page.classList.remove("active");
+        });
+        document.getElementById(`page${pageNumber}`).classList.add("active");
+
+        // Update form title
+        const titles = ["Registration Form", "Competition Details", "Payment"];
+        document.getElementById("form-title").textContent =
+          titles[pageNumber - 1];
+      }
+
+      function nextPage(pageNumber) {
+        // Simple form validation for page 1
+        if (currentPage === 1) {
+          const requiredInputs = document.querySelectorAll(
+            "#page1 input[required]"
+          );
+          let isValid = true;
+
+          requiredInputs.forEach((input) => {
+            if (!input.value.trim()) {
+              input.style.borderColor = "var(--danger)";
+              isValid = false;
+            } else {
+              input.style.borderColor = "#e9ecef";
+            }
+          });
+
+          if (!isValid) {
+            alert("Please fill in all required fields");
+            return;
+          }
+        }
+
+        currentPage = pageNumber;
+        showPage(currentPage);
+        updateProgressBar();
+      }
+
+      function prevPage(pageNumber) {
+        currentPage = pageNumber;
+        showPage(currentPage);
+        updateProgressBar();
+      }
+
+      // Payment submission
+      function submitPayment() {
+        const toast = document.getElementById("toast");
+        toast.classList.add("show");
+
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 5000);
+      }
+    </script>
+  </body>
 </html>
